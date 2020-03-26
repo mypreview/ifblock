@@ -1,0 +1,36 @@
+{
+  "name": "mypreview/ifblocks",
+  "description": "",
+  "homepage": "https://www.mypreview.one",
+  "type": "wordpress-plugin",
+  "license": "GPL-3.0+",
+  "require": {
+    "php": ">=7.2",
+    "composer/installers": "~1.2"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.5",
+    "wp-coding-standards/wpcs": "^2.2.1",
+    "phpunit/phpunit": "^5",
+    "phpcompatibility/phpcompatibility-wp": "^2.1",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0"
+  },
+  "scripts": {
+    "test": [
+      "phpunit"
+    ],
+    "phpcs": [
+      "phpcs -s -p"
+    ],
+    "phpcbf": [
+      "phpcbf -p"
+    ]
+  },
+  "extra": {
+    "scripts-description": {
+      "test": "Run unit tests",
+      "phpcs": "Analyze code against the WordPress coding standards with PHP_CodeSniffer",
+      "phpcbf": "Fix coding standards warnings/errors automatically with PHP Code Beautifier"
+    }
+  }
+}
