@@ -111,8 +111,8 @@ if ( ! class_exists( 'IfBlocks' ) ) :
 		 */
 		private function init() {
 
-			add_action( 'plugins_loaded', array( $this, 'load_textdomain' ), 99 );
-			add_action( 'enqueue_block_editor_assets', array( $this, 'block_localization' ) );
+			add_action( 'plugins_loaded', array( self::instance(), 'load_textdomain' ), 99 );
+			add_action( 'enqueue_block_editor_assets', array( self::instance(), 'block_localization' ) );
 
 		}
 
