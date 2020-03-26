@@ -49,7 +49,7 @@
     <!-- Verify that all gettext calls use the correct text domain. -->
     <rule ref="WordPress.WP.I18n">
         <properties>
-            <property name="text_domain" type="array" value="if-blocks" />
+            <property name="text_domain" type="array" value="ifblocks" />
         </properties>
     </rule>
     <rule ref="Squiz.Commenting">
