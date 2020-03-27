@@ -49,7 +49,7 @@ if ( ! class_exists( 'API' ) ) :
 		public function __construct() {
 
 			$this->version   = '1';
-			$this->slug 	 = str_replace( '-', '', IFBLOCKS_SLUG );
+			$this->slug      = str_replace( '-', '', IFBLOCKS_SLUG );
 			$this->namespace = sprintf( '%s/v%s', $this->slug, $this->version );
 
 		}
@@ -82,6 +82,15 @@ if ( ! class_exists( 'API' ) ) :
 					'permission_callback' => sprintf( '%s::get_permission', __CLASS__ ),
 				)
 			);
+			register_rest_route(
+				$this->namespace,
+				'/browsers',
+				array(
+					'methods'             => 'GET',
+					'callback'            => sprintf( '%s::get_browsers', __CLASS__ ),
+					'permission_callback' => sprintf( '%s::get_permission', __CLASS__ ),
+				)
+			);
 		}
 
 		/**
@@ -104,7 +113,63 @@ if ( ! class_exists( 'API' ) ) :
 				);
 			}
 
-			return $roles;
+			// phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores, WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
+			return apply_filters( sprintf( '%s_api_user_roles', __NAMESPACE__ ), $roles );
+
+		}
+
+		/**
+		 * Get the browser names
+		 *
+		 * @return $browsers JSON feed of static objects
+		 */
+		public static function get_browsers() {
+
+			$browsers = array(
+				array(
+					'value' => 'is_chrome',
+					'label' => esc_html_x( 'Google Chrome', 'browser name', 'ifblocks' ),
+				),
+				array(
+					'value' => 'is_safari',
+					'label' => esc_html_x( 'Safari', 'browser name', 'ifblocks' ),
+				),
+				array(
+					'value' => 'is_iphone',
+					'label' => esc_html_x( 'iPhone Safari', 'browser name', 'ifblocks' ),
+				),
+				array(
+					'value' => 'is_NS4',
+					'label' => esc_html_x( 'Netscape 4', 'browser name', 'ifblocks' ),
+				),
+				array(
+					'value' => 'is_gecko',
+					'label' => esc_html_x( 'FireFox', 'browser name', 'ifblocks' ),
+				),
+				array(
+					'value' => 'is_opera',
+					'label' => esc_html_x( 'Opera', 'browser name', 'ifblocks' ),
+				),
+				array(
+					'value' => 'is_edge',
+					'label' => esc_html_x( 'Microsoft Edge', 'browser name', 'ifblocks' ),
+				),
+				array(
+					'value' => 'is_IE',
+					'label' => esc_html_x( 'Internet Explorer', 'browser name', 'ifblocks' ),
+				),
+				array(
+					'value' => 'is_macIE',
+					'label' => esc_html_x( 'Mac Internet Explorer', 'browser name', 'ifblocks' ),
+				),
+				array(
+					'value' => 'is_winIE',
+					'label' => esc_html_x( 'Windows Internet Explorer', 'browser name', 'ifblocks' ),
+				),
+			);
+
+			// phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores, WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
+			return apply_filters( sprintf( '%s_api_browsers', __NAMESPACE__ ), $browsers );
 
 		}
 
