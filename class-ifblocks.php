@@ -148,7 +148,7 @@ if ( ! class_exists( 'IfBlocks' ) ) :
 		 */
 		public function block_localization() {
 
-			wp_set_script_translations( 'ifblocks-editor', 'ifblocks', sprintf( '%s/languages/', COBLOCKS_PLUGIN_DIR ) );
+			wp_set_script_translations( 'ifblocks-editor', 'ifblocks', sprintf( '%s/languages/', IFBLOCKS_DIR_PATH ) );
 
 		}
 
