@@ -58,22 +58,20 @@ if ( ! class_exists( 'API' ) ) :
 		}
 
 		/**
-		 * Register REST API
+		 * Register REST API routes
 		 *
 		 * @return  void
 		 */
 		public function user_roles() {
 
-			// Registers a REST API route.
+			// Registers custom REST API routes.
 			register_rest_route(
 				$this->namespace,
 				'/user-roles',
 				array(
 					'methods'             => 'GET',
 					'callback'            => sprintf( '%s::get_user_roles', __CLASS__ ),
-					'permission_callback' => function () {
-						return current_user_can( 'edit_others_posts' );
-					},
+					'permission_callback' => sprintf( '%s::get_permission', __CLASS__ ),
 				)
 			);
 		}
@@ -99,6 +97,17 @@ if ( ! class_exists( 'API' ) ) :
 			}
 
 			return $roles;
+
+		}
+
+		/**
+		 * Determine whether the current user has at least "Editor" role capabilities.
+		 *
+		 * @return bool
+		 */
+		public static function get_permission() {
+
+			return current_user_can( 'edit_others_posts' );
 
 		}
 
