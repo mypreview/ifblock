@@ -12,6 +12,7 @@ const { BundleAnalyzerPlugin } = require( 'webpack-bundle-analyzer' );
 const ProgressBarPlugin = require( 'progress-bar-webpack-plugin' );
 const UglifyJsPlugin = require( 'uglifyjs-webpack-plugin' );
 const DependencyExtractionWebpackPlugin = require( '@wordpress/dependency-extraction-webpack-plugin' );
+const FixStyleOnlyEntriesPlugin = require( 'webpack-fix-style-only-entries' );
 const WebpackRTLPlugin = require( 'webpack-rtl-plugin' );
 const WebpackNotifierPlugin = require( 'webpack-notifier' );
 const chalk = require( 'chalk' );
@@ -96,6 +97,7 @@ const baseConfig = {
 		new BundleAnalyzerPlugin( {
 			openAnalyzer: false,
 		} ),
+		new FixStyleOnlyEntriesPlugin(),
 		new MiniCssExtractPlugin( {
 			filename: 'style.css',
 		} ),
@@ -147,7 +149,7 @@ const editorConfig = {
 const frontendConfig = {
 	...baseConfig,
 	entry: {
-		script: './assets/src/public/script.js',
+		style: [ './assets/src/public/style.css' ],
 	},
 	output: {
 		path: path.resolve( __dirname, './assets/dist/public/' ),
