@@ -115,7 +115,7 @@ const baseConfig = {
 			injectPolyfill: true,
 		} ),
 		new WebpackNotifierPlugin( {
-			title: 'Container Block',
+			title: 'If Blocks',
 			alwaysNotify: true,
 			skipFirstNotification: true,
 		} ),
