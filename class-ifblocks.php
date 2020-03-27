@@ -14,7 +14,7 @@
  *
  * @link                    https://www.mypreview.one
  * @since                   1.0.0
- * @package                 ifblocks
+ * @package                 ifblocks\mypreview
  *
  * @wordpress-plugin
  * Plugin Name:             If Blocks
@@ -123,10 +123,9 @@ if ( ! class_exists( 'IfBlocks' ) ) :
 		 */
 		private function includes() {
 
-			require_once sprintf( '%sincludes/class-api.php', plugin_dir_path( IFBLOCKS_FILE ) );
-
-			$api = new API();
-			$api->init();
+			require_once sprintf( '%sincludes/class-ifblock.php', plugin_dir_path( IFBLOCKS_FILE ) );
+			$if_block = new IfBlock();
+			$if_block->init();
 
 		}
 
