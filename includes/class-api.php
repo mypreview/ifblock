@@ -28,6 +28,13 @@ if ( ! class_exists( 'API' ) ) :
 		private $version;
 
 		/**
+		 * Slug of the namespace.
+		 *
+		 * @var  string   $slug
+		 */
+		private $slug;
+
+		/**
 		 * The first URL segment after core prefix.
 		 *
 		 * @var  string   $namespace
@@ -42,7 +49,8 @@ if ( ! class_exists( 'API' ) ) :
 		public function __construct() {
 
 			$this->version   = '1';
-			$this->namespace = sprintf( 'ifblocks/v%s', $this->version );
+			$this->slug 	 = str_replace( '-', '', IFBLOCKS_SLUG );
+			$this->namespace = sprintf( '%s/v%s', $this->slug, $this->version );
 
 		}
 
