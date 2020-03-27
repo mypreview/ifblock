@@ -3,7 +3,7 @@
  * Unistall If Blocks.
  * Fired when the plugin is uninstalled.
  *
- * @package     If Blocks
+ * @package     ifblocks\mypreview
  * @since       1.0.0
  */
 

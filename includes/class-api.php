@@ -2,7 +2,7 @@
 /**
  * Register custom routes for retrieving values via REST API.
  *
- * @package         ifblocks
+ * @package         ifblocks\mypreview
  * @since           1.0.0
  */
 
