@@ -123,7 +123,7 @@ if ( ! class_exists( 'IfBlocks' ) ) :
 		 */
 		private function includes() {
 
-			require_once sprintf( '%sincludes/class-ifblock.php', plugin_dir_path( IFBLOCKS_FILE ) );
+			require_once sprintf( '%sincludes/class-ifblock.php', IFBLOCKS_DIR_PATH );
 			$if_block = new IfBlock();
 			$if_block->init();
 
