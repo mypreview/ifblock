@@ -60,6 +60,7 @@
         <properties>
             <property name="prefixes" type="array">
                 <element value="ifblocks"/>
+                <element value="ifblocks\mypreview"/>
             </property>
         </properties>
     </rule>
