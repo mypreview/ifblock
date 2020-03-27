@@ -125,6 +125,9 @@ if ( ! class_exists( 'IfBlocks' ) ) :
 
 			require_once sprintf( '%sincludes/class-api.php', plugin_dir_path( IFBLOCKS_FILE ) );
 
+			$api = new API();
+			$api->init();
+
 		}
 
 		/**
