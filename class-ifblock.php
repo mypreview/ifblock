@@ -123,9 +123,9 @@ if ( ! class_exists( 'IfBlock' ) ) :
 		 */
 		private function includes() {
 
-			require_once sprintf( '%sincludes/class-ifblock.php', IFBLOCK_DIR_PATH );
-			$if_block = new IfBlock();
-			$if_block->init();
+			require_once sprintf( '%sincludes/class-block.php', IFBLOCK_DIR_PATH );
+			$block = new Block();
+			$block->init();
 
 		}
 
