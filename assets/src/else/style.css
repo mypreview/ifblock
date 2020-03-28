@@ -14,3 +14,6 @@
 	right: 8px;
 	top: 8px;
 }
+.wp-block-mypreview-ifblock:not(.wp-block-mypreview-ifblock--selected) .wp-block-mypreview-ifblock-inner-else--is-empty {
+	display: none;
+}

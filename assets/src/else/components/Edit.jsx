@@ -8,6 +8,7 @@
 /**
  * Block dependencies
  */
+import classnames from 'classnames';
 import applyWithSelect from './../utils/withSelect';
 
 /**
@@ -26,7 +27,11 @@ export default compose( applyWithSelect )(
 
 			return (
 				<Fragment>
-					<div className={ className }>
+					<div
+						className={ classnames( className, {
+							[ `${ className }--is-empty` ]: ! hasInnerBlocks,
+						} ) }
+					>
 						<header className={ `${ className }__header` }>
 							<span className={ `${ className }__icon` }>
 								<Dashicon icon="unlock" />
