@@ -8,7 +8,7 @@
 /**
  * Block dependencies
  */
-import applyWithSelect from './../../utils/withSelect';
+import applyWithSelect from './../utils/withSelect';
 
 /**
  * Internal block libraries
@@ -26,7 +26,7 @@ const TEMPLATE = [
 export default compose( applyWithSelect )(
 	class Edit extends Component {
 		render() {
-			const { className } = this.props;
+			const { isSelected, className } = this.props;
 
 			return (
 				<Fragment>
