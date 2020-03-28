@@ -61,7 +61,7 @@ if ( ! class_exists( 'IfBlock' ) ) :
 
 			// Hook server side rendering into render callback.
 			register_block_type(
-				'mypreview/ifblocks',
+				'mypreview/ifblock',
 				array(
 					'editor_style'    => sprintf( '%s-style', IFBLOCKS_SLUG ),
 					'editor_script'   => sprintf( '%s-script', IFBLOCKS_SLUG ),
