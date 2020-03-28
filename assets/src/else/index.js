@@ -2,7 +2,7 @@
  * Block settings and meta-data
  *
  * @since       1.0.0
- * @package     ifblocks
+ * @package     ifblock
  */
 
 /**
@@ -19,8 +19,8 @@ const { _x } = wp.i18n;
 /**
  * Meta-data for registering block type
  */
-const name = 'ifblocks-inner-else';
-const title = _x( 'Else', 'block title', 'ifblocks' );
+const name = 'ifblock-inner-else';
+const title = _x( 'Else', 'block title', 'ifblock' );
 const category = 'mypreview';
 const icon = 'admin-generic';
 

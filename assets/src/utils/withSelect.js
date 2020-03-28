@@ -2,7 +2,7 @@
  * Higher order component to fetch its data and pass it to our block as props.
  *
  * @since       1.0.0
- * @package     ifblocks
+ * @package     ifblock
  */
 
 /**

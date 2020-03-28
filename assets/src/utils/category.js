@@ -2,7 +2,7 @@
  * Register custom block category.
  *
  * @since       1.0.0
- * @package     ifblocks
+ * @package     ifblock
  */
 
 /**
@@ -19,7 +19,7 @@ const { getCategories, setCategories } = wp.blocks;
 setCategories( [
 	{
 		slug: 'mypreview',
-		title: _x( 'MyPreview', 'block category', 'ifblocks' ),
+		title: _x( 'MyPreview', 'block category', 'ifblock' ),
 		icon: icons.mypreview,
 	},
 	...getCategories().filter( ( { slug } ) => slug !== 'mypreview' ),

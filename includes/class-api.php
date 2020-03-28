@@ -2,11 +2,11 @@
 /**
  * Register custom routes for retrieving values via REST API.
  *
- * @package         ifblocks\mypreview
+ * @package         ifblock\mypreview
  * @since           1.0.0
  */
 
-namespace ifblocks\mypreview;
+namespace ifblock\mypreview;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -49,7 +49,7 @@ if ( ! class_exists( 'API' ) ) :
 		public function __construct() {
 
 			$this->version   = '1';
-			$this->slug      = str_replace( '-', '', IFBLOCKS_SLUG );
+			$this->slug      = str_replace( '-', '', IFBLOCK_SLUG );
 			$this->namespace = sprintf( '%s/v%s', $this->slug, $this->version );
 
 		}
@@ -128,43 +128,43 @@ if ( ! class_exists( 'API' ) ) :
 			$browsers = array(
 				array(
 					'value' => 'is_chrome',
-					'label' => esc_html_x( 'Google Chrome', 'browser name', 'ifblocks' ),
+					'label' => esc_html_x( 'Google Chrome', 'browser name', 'ifblock' ),
 				),
 				array(
 					'value' => 'is_safari',
-					'label' => esc_html_x( 'Safari', 'browser name', 'ifblocks' ),
+					'label' => esc_html_x( 'Safari', 'browser name', 'ifblock' ),
 				),
 				array(
 					'value' => 'is_iphone',
-					'label' => esc_html_x( 'iPhone Safari', 'browser name', 'ifblocks' ),
+					'label' => esc_html_x( 'iPhone Safari', 'browser name', 'ifblock' ),
 				),
 				array(
 					'value' => 'is_NS4',
-					'label' => esc_html_x( 'Netscape 4', 'browser name', 'ifblocks' ),
+					'label' => esc_html_x( 'Netscape 4', 'browser name', 'ifblock' ),
 				),
 				array(
 					'value' => 'is_gecko',
-					'label' => esc_html_x( 'FireFox', 'browser name', 'ifblocks' ),
+					'label' => esc_html_x( 'FireFox', 'browser name', 'ifblock' ),
 				),
 				array(
 					'value' => 'is_opera',
-					'label' => esc_html_x( 'Opera', 'browser name', 'ifblocks' ),
+					'label' => esc_html_x( 'Opera', 'browser name', 'ifblock' ),
 				),
 				array(
 					'value' => 'is_edge',
-					'label' => esc_html_x( 'Microsoft Edge', 'browser name', 'ifblocks' ),
+					'label' => esc_html_x( 'Microsoft Edge', 'browser name', 'ifblock' ),
 				),
 				array(
 					'value' => 'is_IE',
-					'label' => esc_html_x( 'Internet Explorer', 'browser name', 'ifblocks' ),
+					'label' => esc_html_x( 'Internet Explorer', 'browser name', 'ifblock' ),
 				),
 				array(
 					'value' => 'is_macIE',
-					'label' => esc_html_x( 'Mac Internet Explorer', 'browser name', 'ifblocks' ),
+					'label' => esc_html_x( 'Mac Internet Explorer', 'browser name', 'ifblock' ),
 				),
 				array(
 					'value' => 'is_winIE',
-					'label' => esc_html_x( 'Windows Internet Explorer', 'browser name', 'ifblocks' ),
+					'label' => esc_html_x( 'Windows Internet Explorer', 'browser name', 'ifblock' ),
 				),
 			);
 

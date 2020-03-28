@@ -2,7 +2,7 @@
  * Edit component
  *
  * @since       1.0.0
- * @package     ifblocks
+ * @package     ifblock
  */
 
 /**
@@ -19,8 +19,8 @@ const { compose } = wp.compose;
 const { InnerBlocks } = wp.blockEditor;
 const { Dashicon } = wp.components;
 const TEMPLATE = [
-	[ 'mypreview/ifblocks-inner-if' ],
-	[ 'mypreview/ifblocks-inner-else' ],
+	[ 'mypreview/ifblock-inner-if' ],
+	[ 'mypreview/ifblock-inner-else' ],
 ];
 
 export default compose( applyWithSelect )(
@@ -40,7 +40,7 @@ export default compose( applyWithSelect )(
 									{ _x(
 										'Content shown if the conditions of the if-block are not met.',
 										'help',
-										'ifblocks'
+										'ifblock'
 									) }
 								</span>
 							</span>
@@ -51,7 +51,7 @@ export default compose( applyWithSelect )(
 							allowedBlocksExample={ TEMPLATE }
 						/>
 						<footer className={ `${ className }__footer` }>
-							{ _x( 'End If Statement', 'help', 'ifblocks' ) }
+							{ _x( 'End If Statement', 'help', 'ifblock' ) }
 						</footer>
 					</div>
 				</Fragment>

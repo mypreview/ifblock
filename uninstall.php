@@ -1,9 +1,9 @@
 <?php
 /**
- * Unistall If Blocks.
+ * Unistall If Block.
  * Fired when the plugin is uninstalled.
  *
- * @package     ifblocks\mypreview
+ * @package     ifblock\mypreview
  * @since       1.0.0
  */
 

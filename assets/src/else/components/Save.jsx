@@ -2,7 +2,7 @@
  * Save component
  *
  * @since       1.0.0
- * @package     ifblocks
+ * @package     ifblock
  */
 
 /**

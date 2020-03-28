@@ -1,6 +1,6 @@
 <?php
 /**
- * The `If Blocks` bootstrap file.
+ * The `If Block` bootstrap file.
  *
  * This file is read by WordPress to generate the plugin information in the plugin
  * admin area. This file also includes all of the dependencies used by the plugin,
@@ -14,10 +14,10 @@
  *
  * @link                    https://www.mypreview.one
  * @since                   1.0.0
- * @package                 ifblocks\mypreview
+ * @package                 ifblock\mypreview
  *
  * @wordpress-plugin
- * Plugin Name:             If Blocks
+ * Plugin Name:             If Block
  * Plugin URI:              https://www.mypreview.one
  * Description:             XXXX
  * Version:                 1.0.0
@@ -25,11 +25,11 @@
  * Author URI:              https://www.mypreview.one
  * License:                 GPL-3.0
  * License URI:             http://www.gnu.org/licenses/gpl-3.0.txt
- * Text Domain:             ifblocks
+ * Text Domain:             ifblock
  * Domain Path:             /languages
  */
 
-namespace ifblocks\mypreview;
+namespace ifblock\mypreview;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -42,21 +42,21 @@ if ( ! defined( 'WPINC' ) ) {
  * @see     https://codex.wordpress.org/Function_Reference/plugin_basename
  * @see     http://php.net/manual/en/language.constants.predefined.php
  */
-define( 'IFBLOCKS_FILE', __FILE__ );
-define( 'IFBLOCKS_VERSION', get_file_data( IFBLOCKS_FILE, array( 'version' => 'Version' ) )['version'] );
-define( 'IFBLOCKS_NAME', get_file_data( IFBLOCKS_FILE, array( 'name' => 'Plugin Name' ) )['name'] );
-define( 'IFBLOCKS_SLUG', dirname( plugin_basename( IFBLOCKS_FILE ) ) );
-define( 'IFBLOCKS_BASENAME', basename( IFBLOCKS_FILE ) );
-define( 'IFBLOCKS_PLUGIN_BASENAME', plugin_basename( IFBLOCKS_FILE ) );
-define( 'IFBLOCKS_DIR_URL', plugin_dir_url( IFBLOCKS_FILE ) );
-define( 'IFBLOCKS_DIR_PATH', plugin_dir_path( IFBLOCKS_FILE ) );
+define( 'IFBLOCK_FILE', __FILE__ );
+define( 'IFBLOCK_VERSION', get_file_data( IFBLOCK_FILE, array( 'version' => 'Version' ) )['version'] );
+define( 'IFBLOCK_NAME', get_file_data( IFBLOCK_FILE, array( 'name' => 'Plugin Name' ) )['name'] );
+define( 'IFBLOCK_SLUG', dirname( plugin_basename( IFBLOCK_FILE ) ) );
+define( 'IFBLOCK_BASENAME', basename( IFBLOCK_FILE ) );
+define( 'IFBLOCK_PLUGIN_BASENAME', plugin_basename( IFBLOCK_FILE ) );
+define( 'IFBLOCK_DIR_URL', plugin_dir_url( IFBLOCK_FILE ) );
+define( 'IFBLOCK_DIR_PATH', plugin_dir_path( IFBLOCK_FILE ) );
 
-if ( ! class_exists( 'IfBlocks' ) ) :
+if ( ! class_exists( 'IfBlock' ) ) :
 
 	/**
-	 * The If Blocks - Class
+	 * The If Block - Class
 	 */
-	final class IfBlocks {
+	final class IfBlock {
 
 		/**
 		 * Instance of the class.
@@ -66,16 +66,16 @@ if ( ! class_exists( 'IfBlocks' ) ) :
 		private static $instance = null;
 
 		/**
-		 * Main IfBlocks Instance.
+		 * Main IfBlock Instance.
 		 *
-		 * Insures that only one instance of IfBlocks exists in memory at any one
+		 * Insures that only one instance of IfBlock exists in memory at any one
 		 * time. Also prevents needing to define globals all over the place.
 		 *
-		 * @return object|IfBlocks The one true IfBlocks
+		 * @return object|IfBlock The one true IfBlock
 		 */
 		public static function instance() {
-			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof IfBlocks ) ) {
-				self::$instance = new IfBlocks();
+			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof IfBlock ) ) {
+				self::$instance = new IfBlock();
 				self::$instance->init();
 				self::$instance->includes();
 			}
@@ -89,7 +89,7 @@ if ( ! class_exists( 'IfBlocks' ) ) :
 		 */
 		protected function __clone() {
 
-			_doing_it_wrong( __FUNCTION__, esc_html_x( 'Cloning instances of this class is forbidden.', 'clone', 'ifblocks' ), esc_html( IFBLOCKS_FILE ) );
+			_doing_it_wrong( __FUNCTION__, esc_html_x( 'Cloning instances of this class is forbidden.', 'clone', 'ifblock' ), esc_html( IFBLOCK_FILE ) );
 
 		}
 
@@ -100,7 +100,7 @@ if ( ! class_exists( 'IfBlocks' ) ) :
 		 */
 		public function __wakeup() {
 
-			_doing_it_wrong( __FUNCTION__, esc_html_x( 'Unserializing instances of this class is forbidden.', 'wakeup', 'ifblocks' ), esc_html( IFBLOCKS_FILE ) );
+			_doing_it_wrong( __FUNCTION__, esc_html_x( 'Unserializing instances of this class is forbidden.', 'wakeup', 'ifblock' ), esc_html( IFBLOCK_FILE ) );
 
 		}
 
@@ -123,7 +123,7 @@ if ( ! class_exists( 'IfBlocks' ) ) :
 		 */
 		private function includes() {
 
-			require_once sprintf( '%sincludes/class-ifblock.php', IFBLOCKS_DIR_PATH );
+			require_once sprintf( '%sincludes/class-ifblock.php', IFBLOCK_DIR_PATH );
 			$if_block = new IfBlock();
 			$if_block->init();
 
@@ -137,7 +137,7 @@ if ( ! class_exists( 'IfBlocks' ) ) :
 		 */
 		public function load_textdomain() {
 
-			load_plugin_textdomain( 'ifblocks', false, sprintf( '%s/languages/', IFBLOCKS_SLUG ) );
+			load_plugin_textdomain( 'ifblock', false, sprintf( '%s/languages/', IFBLOCK_SLUG ) );
 
 		}
 
@@ -149,20 +149,20 @@ if ( ! class_exists( 'IfBlocks' ) ) :
 		public function block_editor_assets() {
 
 			// Enqueue the stylesheet.
-			wp_register_style( sprintf( '%s-style', IFBLOCKS_SLUG ), sprintf( '%sassets/dist/style.css', IFBLOCKS_DIR_URL ), array( 'wp-edit-blocks' ), IFBLOCKS_VERSION, 'screen' );
+			wp_register_style( sprintf( '%s-style', IFBLOCK_SLUG ), sprintf( '%sassets/dist/style.css', IFBLOCK_DIR_URL ), array( 'wp-edit-blocks' ), IFBLOCK_VERSION, 'screen' );
 			// Add metadata to the stylesheet.
-			wp_style_add_data( sprintf( '%s-style', IFBLOCKS_SLUG ), 'rtl', 'replace' );
+			wp_style_add_data( sprintf( '%s-style', IFBLOCK_SLUG ), 'rtl', 'replace' );
 
-			$script_path       = sprintf( '%sassets/dist/script.js', IFBLOCKS_DIR_PATH );
-			$script_asset_path = sprintf( '%sassets/dist/script.asset.php', IFBLOCKS_DIR_PATH );
+			$script_path       = sprintf( '%sassets/dist/script.js', IFBLOCK_DIR_PATH );
+			$script_asset_path = sprintf( '%sassets/dist/script.asset.php', IFBLOCK_DIR_PATH );
 			$script_asset      = file_exists( $script_asset_path ) ? require $script_asset_path : array(
 				'dependencies' => array( 'wp-blocks', 'wp-dom-ready' ),
 				'version'      => filemtime( $script_path ),
 			);
-			$script_url        = sprintf( '%sassets/dist/script.js', IFBLOCKS_DIR_URL );
+			$script_url        = sprintf( '%sassets/dist/script.js', IFBLOCK_DIR_URL );
 			// Enqueue the JavaScript.
-			wp_register_script( sprintf( '%s-script', IFBLOCKS_SLUG ), $script_url, $script_asset['dependencies'], $script_asset['version'], true );
-			wp_set_script_translations( sprintf( '%s-script', IFBLOCKS_SLUG ), 'ifblocks', sprintf( '%s/languages/', IFBLOCKS_DIR_PATH ) );
+			wp_register_script( sprintf( '%s-script', IFBLOCK_SLUG ), $script_url, $script_asset['dependencies'], $script_asset['version'], true );
+			wp_set_script_translations( sprintf( '%s-script', IFBLOCK_SLUG ), 'ifblock', sprintf( '%s/languages/', IFBLOCK_DIR_PATH ) );
 
 		}
 
@@ -170,23 +170,23 @@ if ( ! class_exists( 'IfBlocks' ) ) :
 endif;
 
 /**
- * The main function for that returns IfBlocks
+ * The main function for that returns IfBlock
  *
- * The main function responsible for returning the one true IfBlocks
+ * The main function responsible for returning the one true IfBlock
  * Instance to functions everywhere.
  *
  * Use this function like you would a global variable, except without needing
  * to declare the global.
  *
- * @return object|IfBlocks The one true IfBlocks Instance.
+ * @return object|IfBlock The one true IfBlock Instance.
  */
-function ifblocks() {
-	return IfBlocks::instance();
+function ifblock() {
+	return IfBlock::instance();
 }
 
 // Get the plugin running. Load on plugins_loaded action to avoid issue on multisite.
 if ( function_exists( 'is_multisite' ) && is_multisite() ) {
-	add_action( 'plugins_loaded', sprintf( '%s\ifblocks', __NAMESPACE__ ), 90 );
+	add_action( 'plugins_loaded', sprintf( '%s\ifblock', __NAMESPACE__ ), 90 );
 } else {
-	ifblocks();
+	ifblock();
 }

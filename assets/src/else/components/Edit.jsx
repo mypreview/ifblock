@@ -2,7 +2,7 @@
  * Edit component
  *
  * @since       1.0.0
- * @package     ifblocks
+ * @package     ifblock
  */
 
 /**
@@ -36,7 +36,7 @@ export default compose( applyWithSelect )(
 									{ _x(
 										'Content shown if the conditions of the if-block are not met.',
 										'help',
-										'ifblocks'
+										'ifblock'
 									) }
 								</span>
 							</span>

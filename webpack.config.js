@@ -3,7 +3,7 @@
  * for Container Block plugin reside in this file.
  *
  * @requires    Webpack
- * @package     if-blocks
+ * @package     ifblock
  */
 const path = require( 'path' );
 const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
@@ -28,7 +28,7 @@ const editorConfig = {
 		libraryTarget: 'this',
 		// This fixes an issue with multiple webpack projects using chunking
 		// See https://webpack.js.org/configuration/output/#outputjsonpfunction
-		jsonpFunction: 'webpackIfBlocksJsonp',
+		jsonpFunction: 'webpackIfBlockJsonp',
 	},
 	mode: NODE_ENV,
 	performance: {
@@ -137,7 +137,7 @@ const editorConfig = {
 			injectPolyfill: true,
 		} ),
 		new WebpackNotifierPlugin( {
-			title: 'If Blocks',
+			title: 'If Block',
 			alwaysNotify: true,
 			skipFirstNotification: true,
 		} ),

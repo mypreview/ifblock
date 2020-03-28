@@ -1,6 +1,6 @@
 {
-	"name": "if-blocks",
-	"title": "If Blocks",
+	"name": "ifblock",
+	"title": "If Block",
 	"description": "",
 	"version": "1.0.0",
 	"author": "MyPreview",
@@ -12,10 +12,10 @@
 	"copyright": "© 2015 - 2020 MyPreview. All Rights Reserved.",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/mypreview/if-blocks.git"
+		"url": "https://github.com/mypreview/ifblock.git"
 	},
 	"bugs": {
-		"url": "https://github.com/mypreview/if-blocks/issues"
+		"url": "https://github.com/mypreview/ifblock/issues"
 	},
 	"scripts": {
 		"dev": "cross-env BABEL_ENV=default webpack --watch --info-verbosity none",
@@ -27,8 +27,8 @@
 		"lint:php": "composer phpcs",
 		"lint:php-fix": "composer phpcbf",
 		"reformat-files": "prettier --ignore-path .eslintignore --write \"**/*.{js,jsx,json,ts,tsx}\"",
-		"makepot": "wp i18n make-pot . languages/if-blocks-js.pot --exclude=node_modules,vendor,dist",
-		"makepot:php": "npx pot-to-php languages/if-blocks-js.pot languages/if-blocks-translations.php if-blocks"
+		"makepot": "wp i18n make-pot . languages/ifblock-js.pot --exclude=node_modules,vendor,dist",
+		"makepot:php": "npx pot-to-php languages/ifblock-js.pot languages/ifblock-translations.php ifblock"
 	},
 	"devDependencies": {
 		"@babel/core": "7.8.3",

@@ -2,11 +2,11 @@
 /**
  * The main loader class for the displaying if-block.
  *
- * @package         ifblocks\mypreview
+ * @package         ifblock\mypreview
  * @since           1.0.0
  */
 
-namespace ifblocks\mypreview;
+namespace ifblock\mypreview;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -46,7 +46,7 @@ if ( ! class_exists( 'IfBlock' ) ) :
 		 */
 		private function includes() {
 
-			require_once sprintf( '%sincludes/class-api.php', IFBLOCKS_DIR_PATH );
+			require_once sprintf( '%sincludes/class-api.php', IFBLOCK_DIR_PATH );
 			$api = new API();
 			$api->init();
 
@@ -63,8 +63,8 @@ if ( ! class_exists( 'IfBlock' ) ) :
 			register_block_type(
 				'mypreview/ifblock',
 				array(
-					'editor_style'    => sprintf( '%s-style', IFBLOCKS_SLUG ),
-					'editor_script'   => sprintf( '%s-script', IFBLOCKS_SLUG ),
+					'editor_style'    => sprintf( '%s-style', IFBLOCK_SLUG ),
+					'editor_script'   => sprintf( '%s-script', IFBLOCK_SLUG ),
 					'render_callback' => sprintf( '%s::render_callback()', __CLASS__ ),
 				)
 			);
