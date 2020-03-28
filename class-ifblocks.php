@@ -149,19 +149,19 @@ if ( ! class_exists( 'IfBlocks' ) ) :
 		public function block_editor_assets() {
 
 			// Enqueue the stylesheet.
-            wp_register_style( sprintf( '%s-style', IFBLOCKS_SLUG ), sprintf( '%sassets/dist/admin/style.css', IFBLOCKS_DIR_URL ), array( 'wp-edit-blocks' ), IFBLOCKS_VERSION, 'screen' );
-            // Add metadata to the stylesheet.
-            wp_style_add_data( sprintf( '%s-style', IFBLOCKS_SLUG ), 'rtl', 'replace' );
+			wp_register_style( sprintf( '%s-style', IFBLOCKS_SLUG ), sprintf( '%sassets/dist/admin/style.css', IFBLOCKS_DIR_URL ), array( 'wp-edit-blocks' ), IFBLOCKS_VERSION, 'screen' );
+			// Add metadata to the stylesheet.
+			wp_style_add_data( sprintf( '%s-style', IFBLOCKS_SLUG ), 'rtl', 'replace' );
 
-            $script_path       = sprintf( '%sassets/dist/admin/script.js', IFBLOCKS_DIR_PATH );
-            $script_asset_path = sprintf( '%sassets/dist/admin/script.asset.php', IFBLOCKS_DIR_PATH );
-            $script_asset      = file_exists( $script_asset_path ) ? require $script_asset_path : array(
-                'dependencies' => array( 'wp-blocks', 'wp-dom-ready' ),
-                'version'      => filemtime( $script_path ),
-            );
-            $script_url        = sprintf( '%sassets/dist/admin/script.js', IFBLOCKS_DIR_URL );
-            // Enqueue the JavaScript.
-            wp_register_script( sprintf( '%s-script', IFBLOCKS_SLUG ), $script_url, $script_asset['dependencies'], $script_asset['version'], true );
+			$script_path       = sprintf( '%sassets/dist/admin/script.js', IFBLOCKS_DIR_PATH );
+			$script_asset_path = sprintf( '%sassets/dist/admin/script.asset.php', IFBLOCKS_DIR_PATH );
+			$script_asset      = file_exists( $script_asset_path ) ? require $script_asset_path : array(
+				'dependencies' => array( 'wp-blocks', 'wp-dom-ready' ),
+				'version'      => filemtime( $script_path ),
+			);
+			$script_url        = sprintf( '%sassets/dist/admin/script.js', IFBLOCKS_DIR_URL );
+			// Enqueue the JavaScript.
+			wp_register_script( sprintf( '%s-script', IFBLOCKS_SLUG ), $script_url, $script_asset['dependencies'], $script_asset['version'], true );
 			wp_set_script_translations( sprintf( '%s-script', IFBLOCKS_SLUG ), 'ifblocks', sprintf( '%s/languages/', IFBLOCKS_DIR_PATH ) );
 
 		}

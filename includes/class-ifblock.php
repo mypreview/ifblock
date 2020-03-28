@@ -63,8 +63,8 @@ if ( ! class_exists( 'IfBlock' ) ) :
 			register_block_type(
 				'mypreview/ifblocks',
 				array(
-					'editor_style' => sprintf( '%s-style', IFBLOCKS_SLUG ),
-					'editor_script' => sprintf( '%s-script', IFBLOCKS_SLUG ),
+					'editor_style'    => sprintf( '%s-style', IFBLOCKS_SLUG ),
+					'editor_script'   => sprintf( '%s-script', IFBLOCKS_SLUG ),
 					'render_callback' => sprintf( '%s::render_callback()', __CLASS__ ),
 				)
 			);
