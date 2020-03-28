@@ -29,9 +29,11 @@ const icon = 'admin-generic';
  */
 const settings = {
 	title,
+	parent:     [ 'mypreview/ifblock' ],
 	supports: {
-		inserter: false,
 		html: false,
+		inserter: false,
+		customClassName: false
 	},
 	edit,
 	save,
