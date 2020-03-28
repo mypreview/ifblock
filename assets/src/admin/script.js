@@ -8,10 +8,12 @@ import './utils/category';
  * Import custom/built-in editor blocks.
  */
 import * as innerIf from './if/';
+import * as innerElse from './else/';
 
 export function registerBlocks() {
 	[ 
-		innerIf 
+		innerIf,
+		innerElse
 	].forEach( ( block ) => {
 		if ( ! block ) {
 			return;
