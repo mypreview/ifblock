@@ -67,7 +67,7 @@ const editorConfig = {
 							[
 								'@wordpress/babel-plugin-makepot',
 								{
-									output: 'languages/container-block-js.pot',
+									output: 'languages/ifblock-js.pot',
 								},
 							],
 						],
