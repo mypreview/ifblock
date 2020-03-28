@@ -8,7 +8,7 @@
 /**
  * Block dependencies
  */
-import applyWithSelect from './../../utils/withSelect';
+import applyWithSelect from './../utils/withSelect';
 
 /**
  * Internal block libraries
