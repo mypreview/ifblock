@@ -21,22 +21,11 @@ if ( ! class_exists( 'IfBlock' ) ) :
 	final class IfBlock {
 
 		/**
-		 * Slug of registering block type.
-		 *
-		 * @var  string   $slug
-		 */
-		private $slug;
-
-		/**
 		 * Constructor.
 		 *
 		 * @return  void
 		 */
-		public function __construct() {
-
-			$this->slug = str_replace( '\\', '/', __NAMESPACE__ );
-
-		}
+		public function __construct() {}
 
 		/**
 		 * Initialize all of the plugin functions.
@@ -72,8 +61,10 @@ if ( ! class_exists( 'IfBlock' ) ) :
 
 			// Hook server side rendering into render callback.
 			register_block_type(
-				$this->slug,
+				'mypreview/ifblocks',
 				array(
+					'editor_style' => sprintf( '%s-style', IFBLOCKS_SLUG ),
+					'editor_script' => sprintf( '%s-script', IFBLOCKS_SLUG ),
 					'render_callback' => sprintf( '%s::render_callback()', __CLASS__ ),
 				)
 			);
@@ -91,6 +82,8 @@ if ( ! class_exists( 'IfBlock' ) ) :
 			if ( is_admin() ) {
 				return $content;
 			}
+
+			return $content;
 
 		}
 
