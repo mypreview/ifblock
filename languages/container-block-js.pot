@@ -1,0 +1,35 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"X-Generator: babel-plugin-makepot\n"
+
+#: assets/src/else/components/Edit.jsx:36
+#: assets/src/ifblock/components/Edit.jsx:40
+msgctxt "help"
+msgid "Content shown if the conditions of the if-block are not met."
+msgstr ""
+
+#: assets/src/ifblock/components/Edit.jsx:54
+msgctxt "help"
+msgid "End If Statement"
+msgstr ""
+
+#: assets/src/else/index.js:23
+msgctxt "block title"
+msgid "Else"
+msgstr ""
+
+#: assets/src/if/index.js:23
+msgctxt "block title"
+msgid "If"
+msgstr ""
+
+#: assets/src/ifblock/index.js:24
+msgctxt "block title"
+msgid "If Block"
+msgstr ""
+
+#: assets/src/utils/category.js:22
+msgctxt "block category"
+msgid "MyPreview"
+msgstr ""
