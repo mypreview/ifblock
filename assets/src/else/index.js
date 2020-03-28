@@ -29,9 +29,10 @@ const icon = 'admin-generic';
  */
 const settings = {
 	title,
-	parent: [ 'mypreview/ifblocks' ],
+	parent: [ 'mypreview/ifblock' ],
 	supports: {
 		html: false,
+		anchor: true,
 		inserter: false,
 		customClassName: false,
 	},
