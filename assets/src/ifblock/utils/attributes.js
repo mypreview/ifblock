@@ -4,7 +4,7 @@ const attributes = {
 	},
 	browser: {
 		type: 'string',
-	}
+	},
 };
 
 export default attributes;
