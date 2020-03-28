@@ -61,7 +61,7 @@ if ( ! class_exists( 'API' ) ) :
 		 */
 		public function init() {
 
-			add_action( 'init', array( $this, 'user_roles' ) );
+			add_action( 'rest_api_init', array( $this, 'register_rest_routes' ) );
 
 		}
 
@@ -70,7 +70,7 @@ if ( ! class_exists( 'API' ) ) :
 		 *
 		 * @return  void
 		 */
-		public function user_roles() {
+		public function register_rest_routes() {
 
 			// Registers custom REST API routes.
 			register_rest_route(
