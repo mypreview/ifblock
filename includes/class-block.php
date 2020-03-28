@@ -13,12 +13,12 @@ if ( ! defined( 'WPINC' ) ) {
 	wp_die();
 } // End If Statement
 
-if ( ! class_exists( 'IfBlock' ) ) :
+if ( ! class_exists( 'Block' ) ) :
 
 	/**
 	 * The If Block - Class
 	 */
-	final class IfBlock {
+	final class Block {
 
 		/**
 		 * Constructor.
