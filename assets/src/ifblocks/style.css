@@ -1,0 +1,34 @@
+@import url(../utils/variables.css);
+
+.wp-block-mypreview-ifblocks__header {
+	background-color: var(--main-bg-color);
+	color: var(--main-txt-color);
+	font-size: 12px;
+	margin-bottom: 2em;
+	padding: 5px 20px 5px 10px;
+	position: relative;
+}
+.wp-block-mypreview-ifblocks__icon {
+	opacity: 0.8;
+	position: absolute;
+	right: 8px;
+	top: 8px;
+}
+.wp-block-mypreview-ifblocks__desc {
+	display: block;
+}
+.wp-block-mypreview-ifblocks__desc strong {
+	font-family: monospace;
+	background: var(--monospace-bg-color);
+	padding: 2px 4px 2px 4px;
+	opacity: 0.8;
+	font-weight: normal;
+}
+.wp-block-mypreview-ifblocks__footer {
+	background-color: var(--main-bg-color);
+	color: var(--main-txt-color);
+	font-size: 12px;
+	text-align: right;
+	font-style: italic;
+	padding: 5px 10px 5px 10px;
+}
