@@ -9,10 +9,10 @@ import './utils/category';
  */
 import * as innerIf from './if/';
 import * as innerElse from './else/';
-import * as ifBlocks from './ifblocks/';
+import * as ifBlock from './ifblock/';
 
 export function registerBlocks() {
-	[ innerIf, innerElse, ifBlocks ].forEach( ( block ) => {
+	[ innerIf, innerElse, ifBlock ].forEach( ( block ) => {
 		if ( ! block ) {
 			return;
 		} // End If Statement
