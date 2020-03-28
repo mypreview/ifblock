@@ -18,7 +18,18 @@ const WebpackNotifierPlugin = require( 'webpack-notifier' );
 const chalk = require( 'chalk' );
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
-const baseConfig = {
+const editorConfig = {
+	entry: {
+		script: './assets/src/script.js',
+	},
+	output: {
+		path: path.resolve( __dirname, './assets/dist/' ),
+		filename: '[name].js',
+		libraryTarget: 'this',
+		// This fixes an issue with multiple webpack projects using chunking
+		// See https://webpack.js.org/configuration/output/#outputjsonpfunction
+		jsonpFunction: 'webpackIfBlocksJsonp',
+	},
 	mode: NODE_ENV,
 	performance: {
 		hints: false,
@@ -74,14 +85,12 @@ const baseConfig = {
 							importLoaders: 1,
 						},
 					},
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            plugins: [
-                                require( 'autoprefixer' )
-                            ]
-                        }
-                    }
+					{
+						loader: 'postcss-loader',
+						options: {
+							plugins: [ require( 'autoprefixer' ) ],
+						},
+					},
 				],
 			},
 		],
@@ -91,7 +100,20 @@ const baseConfig = {
 		jQuery: 'jquery',
 		'window.jQuery': 'jquery',
 	},
-	optimization: {},
+	optimization: {
+		minimizer: [
+			new UglifyJsPlugin( {
+				cache: true,
+				parallel: true,
+				uglifyOptions: {
+					output: {
+						ie8: false,
+						comments: false,
+					},
+				},
+			} ),
+		],
+	},
 	plugins: [
 		new CleanWebpackPlugin(),
 		new BundleAnalyzerPlugin( {
@@ -122,49 +144,5 @@ const baseConfig = {
 	],
 };
 
-const editorConfig = {
-	...baseConfig,
-	entry: {
-		script: './assets/src/admin/script.js',
-	},
-	output: {
-		path: path.resolve( __dirname, './assets/dist/admin/' ),
-	},
-	optimization: {
-		minimizer: [
-			new UglifyJsPlugin( {
-				cache: true,
-				parallel: true,
-				uglifyOptions: {
-					output: {
-						ie8: false,
-						comments: false,
-					},
-				},
-			} ),
-		],
-	},
-};
-
-const frontendConfig = {
-	...baseConfig,
-	entry: {
-		style: [ './assets/src/public/style.css' ],
-	},
-	output: {
-		path: path.resolve( __dirname, './assets/dist/public/' ),
-	},
-};
-
-const outputArgs = {
-	filename: '[name].js',
-	libraryTarget: 'this',
-	// This fixes an issue with multiple webpack projects using chunking
-	// See https://webpack.js.org/configuration/output/#outputjsonpfunction
-	jsonpFunction: 'webpackIfBlocksJsonp',
-};
-Object.assign( editorConfig.output, outputArgs );
-Object.assign( frontendConfig.output, outputArgs );
-
-// Export the following modules
-module.exports = [ editorConfig, frontendConfig ];
+// Export the following module
+module.exports = editorConfig;
