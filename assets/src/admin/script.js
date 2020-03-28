@@ -19,7 +19,7 @@ export function registerBlocks() {
 
 		const { name, category, icon, settings } = block;
 
-		wp.blocks.registerBlockType( `ifblocks/mypreview-${ name }`, {
+		wp.blocks.registerBlockType( `mypreview/${ name }`, {
 			category,
 			icon: {
 				src: icon,
