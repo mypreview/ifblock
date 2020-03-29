@@ -57,6 +57,7 @@ const editorConfig = {
 					options: {
 						presets: [ '@wordpress/babel-preset-default' ],
 						plugins: [
+							[ 'transform-class-properties' ],
 							[
 								'@babel/plugin-proposal-object-rest-spread',
 								{
