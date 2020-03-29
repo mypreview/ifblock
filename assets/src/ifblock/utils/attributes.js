@@ -1,4 +1,8 @@
 const attributes = {
+	operator: {
+		type: 'string',
+		default: 'and',
+	},
 	role: {
 		type: 'string',
 		default: '',
