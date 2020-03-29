@@ -27,7 +27,7 @@ const TEMPLATE = [
 	[ 'mypreview/ifblock-inner-if' ],
 	[ 'mypreview/ifblock-inner-else' ],
 ];
-let API_NAMESPACE = 'ifblock/v1';
+const API_NAMESPACE = 'ifblock/v1';
 
 function getRoles() {
 	return apiFetch( {
@@ -48,15 +48,9 @@ function getBrowsers() {
 function getLabel( arr, val ) {
 	if ( !!! Array.isArray( arr ) || !!! arr || !!! val ) return;
 
-	const index = _.findIndex( arr, { value: val } );
+	const index = findIndex( arr, { value: val } );
 
-	return arr[ index ] !== void 0 ? arr[ index ][ 'label' ] : null;
-}
-
-function isEmptyVar( value = null ) {
-	return !! value && null !== value && undefined !== value && '' !== value
-		? true
-		: false;
+	return arr[ index ] !== void 0 ? arr[ index ].label : null;
 }
 
 export default compose( applyWithSelect )(
@@ -78,8 +72,8 @@ export default compose( applyWithSelect )(
 		render() {
 			const { roles, browsers } = this.state;
 			const { isSelected, className, attributes } = this.props;
-			const { role, browser } = attributes;
-			const roleNotice = !!! _.isEmpty( role )
+			const { operator, role, browser } = attributes;
+			const roleNotice = !!! isEmpty( role )
 				? sprintf(
 						_x(
 							'logged-in with the following role: %s',
@@ -89,27 +83,22 @@ export default compose( applyWithSelect )(
 						role
 				  )
 				: '';
-			const browserNotice = !!! _.isEmpty( browser )
+			const browserNotice = !!! isEmpty( browser )
 				? sprintf(
 						_x( 'visiting via %s', 'notice', 'ifblock' ),
 						getLabel( browsers, browser )
 				  )
 				: '';
 			const notice = sprintf(
-				sprintf(
-					_x(
-						'Content shown to users that are %s %s',
-						'notice',
-						'ifblock'
-					),
-					browserNotice,
-					browserNotice && roleNotice
-						? sprintf(
-								_x( 'and %s', 'notice', 'ifblock' ),
-								roleNotice
-						  )
-						: roleNotice
-				)
+				_x(
+					'Content shown to users that are %s %s',
+					'notice',
+					'ifblock'
+				),
+				browserNotice,
+				browserNotice && roleNotice
+					? sprintf( '%s %s', operator, roleNotice )
+					: roleNotice
 			);
 
 			return (
