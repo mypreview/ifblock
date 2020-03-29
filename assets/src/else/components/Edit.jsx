@@ -39,7 +39,7 @@ export default compose( applyWithSelect )(
 							<span className={ `${ className }__desc` }>
 								<span>
 									{ _x(
-										'Content shown if the conditions of the if-block are not met.',
+										'Content shown if the conditions of the above block are not met.',
 										'help',
 										'ifblock'
 									) }
