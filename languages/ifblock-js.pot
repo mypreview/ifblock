@@ -3,13 +3,17 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "X-Generator: babel-plugin-makepot\n"
 
-#: assets/src/else/components/Edit.jsx:36
-#: assets/src/ifblock/components/Edit.jsx:40
+#: assets/src/ifblock/components/Inspector.jsx:61
+msgid "Fetching Data %s"
+msgstr ""
+
+#: assets/src/else/components/Edit.jsx:41
+#: assets/src/ifblock/components/Edit.jsx:47
 msgctxt "help"
 msgid "Content shown if the conditions of the if-block are not met."
 msgstr ""
 
-#: assets/src/ifblock/components/Edit.jsx:54
+#: assets/src/ifblock/components/Edit.jsx:61
 msgctxt "help"
 msgid "End If Statement"
 msgstr ""
@@ -27,6 +31,28 @@ msgstr ""
 #: assets/src/ifblock/index.js:24
 msgctxt "block title"
 msgid "If Block"
+msgstr ""
+
+#: assets/src/ifblock/components/Inspector.jsx:68
+msgctxt "control label"
+msgid "User Role"
+msgstr ""
+
+#: assets/src/ifblock/components/Inspector.jsx:87
+msgctxt "control label"
+msgid "Browser"
+msgstr ""
+
+#: assets/src/ifblock/components/Inspector.jsx:73
+msgctxt "control help"
+msgid ""
+"The block content will be shown to users that are logged-in and in the "
+"following role."
+msgstr ""
+
+#: assets/src/ifblock/components/Inspector.jsx:92
+msgctxt "control help"
+msgid "The block content will be shown to visitors with."
 msgstr ""
 
 #: assets/src/utils/category.js:22
