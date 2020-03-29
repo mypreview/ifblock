@@ -97,7 +97,7 @@ if ( ! class_exists( 'API' ) ) :
 
 			$roles      = array(
 				array(
-					'value' => null,
+					'value' => '',
 					'label' => esc_html_x( 'None', 'role name', 'ifblock' ),
 				),
 			);
@@ -124,7 +124,7 @@ if ( ! class_exists( 'API' ) ) :
 
 			$browsers = array(
 				array(
-					'value' => null,
+					'value' => '',
 					'label' => esc_html_x( 'None', 'browser name', 'ifblock' ),
 				),
 				array(
