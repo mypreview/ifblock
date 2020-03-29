@@ -83,20 +83,37 @@ if ( ! class_exists( 'Block' ) ) :
 				return $content;
 			}
 
-			$get_role    = isset( $attributes['role'] ) ? (string) strtolower( $attributes['role'] ) : null;
-			$get_browser = isset( $attributes['browser'] ) ? (string) strtolower( $attributes['browser'] ) : null;
+			$get_operator = isset( $attributes['operator'] ) ? (string) strtolower( $attributes['operator'] ) : null;
+			$get_role     = isset( $attributes['role'] ) ? (string) strtolower( $attributes['role'] ) : null;
+			$get_browser  = isset( $attributes['browser'] ) ? (string) strtolower( $attributes['browser'] ) : null;
 
 			if ( empty( $get_role ) && empty( $get_browser ) ) {
 				return $content;
 			}
 
-			$has_match                = false;
+			$is_match                 = false;
+			$is_role                  = false;
+			$is_browser               = false;
 			$get_current_user_role    = self::get_current_user_role();
 			$get_current_user_browser = self::get_current_user_browser();
 
 			if ( ! empty( $get_role ) && $get_role === $get_current_user_role ) {
-				$has_match = true;
+				$is_role = true;
 			}
+
+			if ( ! empty( $get_browser ) && $get_browser === $get_current_user_browser ) {
+				$is_browser = true;
+			}
+
+			if ( 'or' === $get_operator ) {
+				if ( $is_role || $is_browser ) {
+					$is_match = true;
+				}
+			} else {
+				if ( $is_role && $is_browser ) {
+					$is_match = true;
+				}
+			} // End If Statement
 
 			$dom = new \DomDocument();
 			$dom->loadXML( $content );
@@ -120,7 +137,7 @@ if ( ! class_exists( 'Block' ) ) :
 			$if_block_content   = trim( $if_block_content_dom->saveHTML() );
 			$else_block_content = trim( $else_block_content_dom->saveHTML() );
 
-			if ( $has_match ) {
+			if ( $is_match ) {
 				return $if_block_content;
 			} else {
 				return $else_block_content;
@@ -166,7 +183,7 @@ if ( ! class_exists( 'Block' ) ) :
 			);
 
 			if ( is_array( $browsers ) && ! empty( $browsers ) ) {
-				// Search and filter the classnames using a callback function
+				// Search and filter the classnames using a callback function.
 				$browser = join(
 					' ',
 					array_filter(
