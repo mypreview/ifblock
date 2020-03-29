@@ -33,6 +33,9 @@ const settings = {
 	supports: {
 		html: false,
 		anchor: true,
+		align: true,
+		alignWide: true,
+		alignFull: true,
 		customClassName: false,
 	},
 	attributes,
