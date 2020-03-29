@@ -9,6 +9,7 @@
  * Block dependencies
  */
 import classnames from 'classnames';
+import Inspector from './Inspector.jsx';
 import applyWithSelect from './../utils/withSelect';
 
 /**
@@ -31,6 +32,7 @@ export default compose( applyWithSelect )(
 
 			return (
 				<Fragment>
+					{ isSelected && <Inspector { ...this.props } /> }
 					<div
 						className={ classnames( className, {
 							[ `${ className }--selected` ]: isSelected,
