@@ -3,7 +3,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "X-Generator: babel-plugin-makepot\n"
 
-#: assets/src/ifblock/components/Edit.jsx:121
+#: assets/src/ifblock/components/Edit.jsx:110
 msgid "Fetching Data%s"
 msgstr ""
 
@@ -12,14 +12,14 @@ msgctxt "help"
 msgid "Content shown if the conditions of the above block are not met."
 msgstr ""
 
-#: assets/src/ifblock/components/Edit.jsx:147
+#: assets/src/ifblock/components/Edit.jsx:136
 msgctxt "help"
 msgid ""
 "Mix and match different conditional statements from the right-hand sidebar "
 "panel."
 msgstr ""
 
-#: assets/src/ifblock/components/Edit.jsx:161
+#: assets/src/ifblock/components/Edit.jsx:150
 msgctxt "help"
 msgid "End If Statement"
 msgstr ""
@@ -39,44 +39,71 @@ msgctxt "block title"
 msgid "If Block"
 msgstr ""
 
-#: assets/src/ifblock/components/Edit.jsx:100
-msgctxt "notice"
-msgid "Content shown to users that are %s %s"
-msgstr ""
-
-#: assets/src/ifblock/components/Edit.jsx:108
-msgctxt "notice"
-msgid "and %s"
-msgstr ""
-
-#: assets/src/ifblock/components/Edit.jsx:84
+#: assets/src/ifblock/components/Edit.jsx:78
 msgctxt "notice"
 msgid "logged-in with the following role: %s"
 msgstr ""
 
-#: assets/src/ifblock/components/Edit.jsx:94
+#: assets/src/ifblock/components/Edit.jsx:88
 msgctxt "notice"
 msgid "visiting via %s"
 msgstr ""
 
-#: assets/src/ifblock/components/Inspector.jsx:32
+#: assets/src/ifblock/components/Edit.jsx:93
+msgctxt "notice"
+msgid "Content shown to users that are %s %s"
+msgstr ""
+
+#: assets/src/ifblock/components/Inspector.jsx:106
 msgctxt "control label"
 msgid "User Role"
 msgstr ""
 
-#: assets/src/ifblock/components/Inspector.jsx:51
+#: assets/src/ifblock/components/Inspector.jsx:125
 msgctxt "control label"
 msgid "Browser"
 msgstr ""
 
-#: assets/src/ifblock/components/Inspector.jsx:37
+#: assets/src/ifblock/components/Inspector.jsx:40
+msgctxt "control label"
+msgid "Operator"
+msgstr ""
+
+#: assets/src/ifblock/components/Inspector.jsx:47
+msgctxt "control label"
+msgid "The block will be shown if all conditions defined below are true or match."
+msgstr ""
+
+#: assets/src/ifblock/components/Inspector.jsx:52
+msgctxt "control label"
+msgid ""
+"The block will be shown if either of the conditions defined below is true "
+"or a match."
+msgstr ""
+
+#: assets/src/ifblock/components/Inspector.jsx:60
+msgctxt "aria label"
+msgid "Conditional operator"
+msgstr ""
+
+#: assets/src/ifblock/components/Inspector.jsx:79
+msgctxt "operator"
+msgid "AND"
+msgstr ""
+
+#: assets/src/ifblock/components/Inspector.jsx:96
+msgctxt "operator"
+msgid "OR"
+msgstr ""
+
+#: assets/src/ifblock/components/Inspector.jsx:111
 msgctxt "control help"
 msgid ""
 "The block content will be shown to users that are logged-in and in the "
 "selected role."
 msgstr ""
 
-#: assets/src/ifblock/components/Inspector.jsx:56
+#: assets/src/ifblock/components/Inspector.jsx:130
 msgctxt "control help"
 msgid ""
 "The block content will be shown to users that are browsing the page via the "
