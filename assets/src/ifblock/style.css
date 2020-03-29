@@ -32,3 +32,6 @@
 	font-style: italic;
 	padding: 5px 10px 5px 10px;
 }
+[for="wp-block-mypreview-ifblock-conditional-operator"] {
+	display: block !important;
+}
