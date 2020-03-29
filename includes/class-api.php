@@ -28,13 +28,6 @@ if ( ! class_exists( 'API' ) ) :
 		private $version;
 
 		/**
-		 * Slug of the namespace.
-		 *
-		 * @var  string   $slug
-		 */
-		private $slug;
-
-		/**
 		 * The first URL segment after core prefix.
 		 *
 		 * @var  string   $namespace
@@ -49,8 +42,7 @@ if ( ! class_exists( 'API' ) ) :
 		public function __construct() {
 
 			$this->version   = '1';
-			$this->slug      = str_replace( '-', '', IFBLOCK_SLUG );
-			$this->namespace = sprintf( '%s/v%s', $this->slug, $this->version );
+			$this->namespace = sprintf( '%s/v%s', IFBLOCK_SLUG, $this->version );
 
 		}
 
@@ -103,7 +95,12 @@ if ( ! class_exists( 'API' ) ) :
 			// Core class used to implement a user roles API.
 			global $wp_roles;
 
-			$roles      = array();
+			$roles      = array(
+				array(
+					'value' => null,
+					'label' => esc_html_x( 'None', 'role name', 'ifblock' ),
+				),
+			);
 			$user_roles = $wp_roles->roles;
 
 			foreach ( $user_roles as $key => $role ) {
@@ -126,6 +123,10 @@ if ( ! class_exists( 'API' ) ) :
 		public static function get_browsers() {
 
 			$browsers = array(
+				array(
+					'value' => null,
+					'label' => esc_html_x( 'None', 'browser name', 'ifblock' ),
+				),
 				array(
 					'value' => 'is_chrome',
 					'label' => esc_html_x( 'Google Chrome', 'browser name', 'ifblock' ),
