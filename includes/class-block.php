@@ -65,7 +65,7 @@ if ( ! class_exists( 'Block' ) ) :
 				array(
 					'editor_style'    => sprintf( '%s-style', IFBLOCK_SLUG ),
 					'editor_script'   => sprintf( '%s-script', IFBLOCK_SLUG ),
-					'render_callback' => sprintf( '%s::render_callback()', __CLASS__ ),
+					'render_callback' => sprintf( '%s::render_callback', __CLASS__ ),
 				)
 			);
 		}
@@ -83,7 +83,102 @@ if ( ! class_exists( 'Block' ) ) :
 				return $content;
 			}
 
-			return $content;
+			$get_role    = isset( $attributes['role'] ) ? (string) strtolower( $attributes['role'] ) : null;
+			$get_browser = isset( $attributes['browser'] ) ? (string) strtolower( $attributes['browser'] ) : null;
+
+			if ( empty( $get_role ) && empty( $get_browser ) ) {
+				return $content;
+			}
+
+			$has_match                = false;
+			$get_current_user_role    = self::get_current_user_role();
+			$get_current_user_browser = self::get_current_user_browser();
+
+			if ( ! empty( $get_role ) && $get_role === $get_current_user_role ) {
+				$has_match = true;
+			}
+
+			$dom = new \DomDocument();
+			$dom->loadXML( $content );
+
+			$finder                 = new \DomXPath( $dom );
+			$if_block_classname     = 'wp-block-mypreview-ifblock-inner-if';
+			$if_block_content       = $finder->query( "//div[contains(@class, '$if_block_classname')]" );
+			$else_block_classname   = 'wp-block-mypreview-ifblock-inner-else';
+			$else_block_content     = $finder->query( "//div[contains(@class, '$else_block_classname')]" );
+			$if_block_content_dom   = new \DOMDocument();
+			$else_block_content_dom = new \DOMDocument();
+
+			foreach ( $if_block_content as $node ) {
+				$if_block_content_dom->appendChild( $if_block_content_dom->importNode( $node, true ) );
+			}
+
+			foreach ( $else_block_content as $node ) {
+				$else_block_content_dom->appendChild( $else_block_content_dom->importNode( $node, true ) );
+			}
+
+			$if_block_content   = trim( $if_block_content_dom->saveHTML() );
+			$else_block_content = trim( $else_block_content_dom->saveHTML() );
+
+			if ( $has_match ) {
+				return $if_block_content;
+			} else {
+				return $else_block_content;
+			}
+
+		}
+
+		/**
+		 * Get user's role.
+		 *
+		 * @return  bool|string       The user's role, or false on failure.
+		 */
+		public static function get_current_user_role() {
+
+			$user = wp_get_current_user();
+			return $user->roles ? strtolower( $user->roles[0] ) : false;
+
+		}
+
+		/**
+		 * Get user's browser.
+		 *
+		 * @return  null|string       The user's browser name.
+		 */
+		public static function get_current_user_browser() {
+
+			$browser  = null;
+			$browsers = apply_filters(
+				'ifblock_wp_global_browser_names',
+				array(
+					'is_iphone',
+					'is_chrome',
+					'is_safari',
+					'is_NS4',
+					'is_opera',
+					'is_macIE',
+					'is_winIE',
+					'is_gecko',
+					'is_lynx',
+					'is_IE',
+					'is_edge',
+				)
+			);
+
+			if ( is_array( $browsers ) && ! empty( $browsers ) ) {
+				// Search and filter the classnames using a callback function
+				$browser = join(
+					' ',
+					array_filter(
+						$browsers,
+						function( $browser ) {
+							return $GLOBALS[ $browser ];
+						}
+					)
+				);
+			} // End If Statement
+
+			return strtolower( $browser );
 
 		}
 
