@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: If Block\n"
-"POT-Creation-Date: 2020-03-30 15:26+0300\n"
+"POT-Creation-Date: 2020-03-30 16:12+0300\n"
 "PO-Revision-Date: 2020-03-30 15:26+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -208,7 +208,7 @@ msgctxt "block description"
 msgid ""
 "This block enables you to configure certain content to appear only if "
 "specified conditions are met (or be hidden) by setting different visibility "
-"rules below."
+"rules."
 msgstr ""
 
 #: languages/ifblock-translations.php:68
@@ -232,7 +232,7 @@ msgid "MyPreview"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "If Block"
+msgid "If Block — Visibility control for Blocks"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
@@ -241,7 +241,10 @@ msgid "https://www.mypreview.one"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "XXXX"
+msgid ""
+"This block enables you to configure certain content to appear only if "
+"specified conditions are met (or be hidden) by setting different visibility "
+"rules."
 msgstr ""
 
 #. Author of the plugin/theme
