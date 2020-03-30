@@ -23,7 +23,7 @@ const { _x } = wp.i18n;
 const name = 'ifblock';
 const title = _x( 'If Block', 'block title', 'ifblock' );
 const category = 'mypreview';
-const icon = 'admin-generic';
+const icon = 'lock';
 
 /**
  * Block settings
@@ -31,7 +31,7 @@ const icon = 'admin-generic';
 const settings = {
 	title,
 	description: _x(
-		'This block enables you to configure certain content to appear only if specified conditions are met (or be hidden) by setting different visibility rules below.',
+		'This block enables you to configure certain content to appear only if specified conditions are met (or be hidden) by setting different visibility rules.',
 		'block description',
 		'ifblock'
 	),
