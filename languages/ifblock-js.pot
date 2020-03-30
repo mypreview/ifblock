@@ -115,7 +115,7 @@ msgctxt "block description"
 msgid ""
 "This block enables you to configure certain content to appear only if "
 "specified conditions are met (or be hidden) by setting different visibility "
-"rules below."
+"rules."
 msgstr ""
 
 #: assets/src/ifblock/index.js:39

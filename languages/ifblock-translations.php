@@ -62,7 +62,7 @@ $generated_i18n_strings = array(
 	_x( 'The block content will be shown to users that are browsing the page via the selected browser.', 'control help', 'ifblock' ),
 
 	// Reference: assets/src/ifblock/index.js:33
-	_x( 'This block enables you to configure certain content to appear only if specified conditions are met (or be hidden) by setting different visibility rules below.', 'block description', 'ifblock' ),
+	_x( 'This block enables you to configure certain content to appear only if specified conditions are met (or be hidden) by setting different visibility rules.', 'block description', 'ifblock' ),
 
 	// Reference: assets/src/ifblock/index.js:39
 	_x( 'Protected', 'block keyword', 'ifblock' ),
