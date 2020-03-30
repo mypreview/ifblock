@@ -17,9 +17,9 @@
  * @package                 ifblock\mypreview
  *
  * @wordpress-plugin
- * Plugin Name:             If Block
+ * Plugin Name:             If Block — Visibility control for Blocks
  * Plugin URI:              https://www.mypreview.one
- * Description:             XXXX
+ * Description:             This block enables you to configure certain content to appear only if specified conditions are met (or be hidden) by setting different visibility rules.
  * Version:                 1.0.0
  * Author:                  MyPreview
  * Author URI:              https://www.mypreview.one
