@@ -30,6 +30,16 @@ const icon = 'admin-generic';
  */
 const settings = {
 	title,
+	description: _x(
+		'This block enables you to configure certain content to appear only if specified conditions are met (or be hidden) by setting different visibility rules below.',
+		'block description',
+		'ifblock'
+	),
+	keywords: [
+		_x( 'Protected', 'block keyword', 'ifblock' ),
+		_x( 'Visibility', 'block keyword', 'ifblock' ),
+		_x( 'Show Hide', 'block keyword', 'ifblock' ),
+	],
 	supports: {
 		html: false,
 		anchor: true,
