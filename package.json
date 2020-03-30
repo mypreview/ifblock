@@ -1,7 +1,7 @@
 {
 	"name": "ifblock",
 	"title": "If Block",
-	"description": "",
+	"description": "This block enables you to configure certain content to appear only if specified conditions are met (or be hidden) by setting different visibility rules.",
 	"version": "1.0.0",
 	"author": "MyPreview",
 	"author_shop": "https://www.mypreview.one",
