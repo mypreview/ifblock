@@ -110,6 +110,29 @@ msgid ""
 "selected browser."
 msgstr ""
 
+#: assets/src/ifblock/index.js:33
+msgctxt "block description"
+msgid ""
+"This block enables you to configure certain content to appear only if "
+"specified conditions are met (or be hidden) by setting different visibility "
+"rules below."
+msgstr ""
+
+#: assets/src/ifblock/index.js:39
+msgctxt "block keyword"
+msgid "Protected"
+msgstr ""
+
+#: assets/src/ifblock/index.js:40
+msgctxt "block keyword"
+msgid "Visibility"
+msgstr ""
+
+#: assets/src/ifblock/index.js:41
+msgctxt "block keyword"
+msgid "Show Hide"
+msgstr ""
+
 #: assets/src/utils/category.js:22
 msgctxt "block category"
 msgid "MyPreview"
