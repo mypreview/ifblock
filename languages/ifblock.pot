@@ -1,0 +1,249 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: If Block\n"
+"POT-Creation-Date: 2020-03-30 15:26+0300\n"
+"PO-Revision-Date: 2020-03-30 15:26+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: class-ifblock.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: class-ifblock.php:92
+msgctxt "clone"
+msgid "Cloning instances of this class is forbidden."
+msgstr ""
+
+#: class-ifblock.php:103
+msgctxt "wakeup"
+msgid "Unserializing instances of this class is forbidden."
+msgstr ""
+
+#: includes/class-api.php:101
+msgctxt "role name"
+msgid "None"
+msgstr ""
+
+#: includes/class-api.php:128
+msgctxt "browser name"
+msgid "None"
+msgstr ""
+
+#: includes/class-api.php:132
+msgctxt "browser name"
+msgid "Google Chrome"
+msgstr ""
+
+#: includes/class-api.php:136
+msgctxt "browser name"
+msgid "Safari"
+msgstr ""
+
+#: includes/class-api.php:140
+msgctxt "browser name"
+msgid "iPhone Safari"
+msgstr ""
+
+#: includes/class-api.php:144
+msgctxt "browser name"
+msgid "Netscape 4"
+msgstr ""
+
+#: includes/class-api.php:148
+msgctxt "browser name"
+msgid "FireFox"
+msgstr ""
+
+#: includes/class-api.php:152
+msgctxt "browser name"
+msgid "Opera"
+msgstr ""
+
+#: includes/class-api.php:156
+msgctxt "browser name"
+msgid "Microsoft Edge"
+msgstr ""
+
+#: includes/class-api.php:160
+msgctxt "browser name"
+msgid "Internet Explorer"
+msgstr ""
+
+#: includes/class-api.php:164
+msgctxt "browser name"
+msgid "Mac Internet Explorer"
+msgstr ""
+
+#: includes/class-api.php:168
+msgctxt "browser name"
+msgid "Windows Internet Explorer"
+msgstr ""
+
+#: languages/ifblock-translations.php:5
+#, php-format
+msgid "Fetching Data%s"
+msgstr ""
+
+#: languages/ifblock-translations.php:8
+msgctxt "help"
+msgid "Content shown if the conditions of the above block are not met."
+msgstr ""
+
+#: languages/ifblock-translations.php:11
+msgctxt "help"
+msgid ""
+"Mix and match different conditional statements from the right-hand sidebar "
+"panel."
+msgstr ""
+
+#: languages/ifblock-translations.php:14
+msgctxt "help"
+msgid "End If Statement"
+msgstr ""
+
+#: languages/ifblock-translations.php:17
+msgctxt "block title"
+msgid "Else"
+msgstr ""
+
+#: languages/ifblock-translations.php:20
+msgctxt "block title"
+msgid "If"
+msgstr ""
+
+#: languages/ifblock-translations.php:23
+msgctxt "block title"
+msgid "If Block"
+msgstr ""
+
+#: languages/ifblock-translations.php:26
+#, php-format
+msgctxt "notice"
+msgid "logged-in with the following role: %s"
+msgstr ""
+
+#: languages/ifblock-translations.php:29
+#, php-format
+msgctxt "notice"
+msgid "visiting via %s"
+msgstr ""
+
+#: languages/ifblock-translations.php:32
+#, php-format
+msgctxt "notice"
+msgid "Content shown to users that are %s %s"
+msgstr ""
+
+#: languages/ifblock-translations.php:35
+msgctxt "control label"
+msgid "User Role"
+msgstr ""
+
+#: languages/ifblock-translations.php:38
+msgctxt "control label"
+msgid "Browser"
+msgstr ""
+
+#: languages/ifblock-translations.php:41
+msgctxt "control label"
+msgid "Operator"
+msgstr ""
+
+#: languages/ifblock-translations.php:44
+msgctxt "control label"
+msgid ""
+"The block will be shown if all conditions defined below are true or match."
+msgstr ""
+
+#: languages/ifblock-translations.php:47
+msgctxt "control label"
+msgid ""
+"The block will be shown if either of the conditions defined below is true or "
+"a match."
+msgstr ""
+
+#: languages/ifblock-translations.php:50
+msgctxt "aria label"
+msgid "Conditional operator"
+msgstr ""
+
+#: languages/ifblock-translations.php:53
+msgctxt "operator"
+msgid "AND"
+msgstr ""
+
+#: languages/ifblock-translations.php:56
+msgctxt "operator"
+msgid "OR"
+msgstr ""
+
+#: languages/ifblock-translations.php:59
+msgctxt "control help"
+msgid ""
+"The block content will be shown to users that are logged-in and in the "
+"selected role."
+msgstr ""
+
+#: languages/ifblock-translations.php:62
+msgctxt "control help"
+msgid ""
+"The block content will be shown to users that are browsing the page via the "
+"selected browser."
+msgstr ""
+
+#: languages/ifblock-translations.php:65
+msgctxt "block description"
+msgid ""
+"This block enables you to configure certain content to appear only if "
+"specified conditions are met (or be hidden) by setting different visibility "
+"rules below."
+msgstr ""
+
+#: languages/ifblock-translations.php:68
+msgctxt "block keyword"
+msgid "Protected"
+msgstr ""
+
+#: languages/ifblock-translations.php:71
+msgctxt "block keyword"
+msgid "Visibility"
+msgstr ""
+
+#: languages/ifblock-translations.php:74
+msgctxt "block keyword"
+msgid "Show Hide"
+msgstr ""
+
+#: languages/ifblock-translations.php:77
+msgctxt "block category"
+msgid "MyPreview"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "If Block"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "https://www.mypreview.one"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "XXXX"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "MyPreview"
+msgstr ""
