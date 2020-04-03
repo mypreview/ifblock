@@ -1,7 +1,7 @@
 {
 	"name": "mypreview/ifblock",
 	"description": "This block enables you to configure certain content to appear only if specified conditions are met (or be hidden) by setting different visibility rules.",
-	"homepage": "https://www.mypreview.one",
+	"homepage": "https://wordpress.org/plugins/if-block-visibility-control-for-blocks",
 	"type": "wordpress-plugin",
 	"license": "GPL-3.0+",
 	"require": {
