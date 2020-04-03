@@ -3,7 +3,7 @@ Contributors: mahdiyazdani, mypreview, gookaani
 Tags: visibility, rules, hide
 Donate link: https://www.mypreview.one
 Requires at least: 5.2
-Tested up to: 5.3.1
+Tested up to: 5.4.0
 Requires PHP: 7.2
 Stable tag: 1.0.0
 License: GPLv3 or later
@@ -14,22 +14,6 @@ This block enables you to configure certain content to appear only if specified 
 == Description ==
 
 This block enables you to configure certain content to appear only if specified conditions are met (or be hidden) by setting different visibility rules.
-
-**Translators & Non-English Speakers**
-
-Translators are welcome to contribute to the plugin. Please use the [WordPress translation website](https://translate.wordpress.org/projects/wp-plugins/ifblock "WordPress translation website").
-
-**Get Involved**
-
-Want to contribute? Here's the [GitHub development repository](https://github.com/mypreview/ifblock "GitHub development repository").
-
-**Free Support**
-
-All support is handled via a dedicated support forum, available at [Community Forums](https://wordpress.org/support/plugin/ifblock "Community Forums"). Please head out there to open a new topic, in case you have any questions.
-
-**Support this plugin**
-
-Don't forget to rate this plugin [5 shining stars](https://wordpress.org/support/plugin/ifblock/reviews/ "5 shining stars") if you like it, thanks!
 
 == Installation ==
 = Minimum Requirements =
@@ -60,10 +44,33 @@ Automatic updates should work smoothly, but we still recommend you back up your 
 4. “If Block” can contain other blocks. You can add content by clicking the `+` icon and picking a block.
 5. Publish the page.
 
+= How do I get help with the plugin? =
+The easiest way to receive support is to “Create a new topic” by visiting Community Forums page [here](https://wordpress.org/support/plugin/if-block-visibility-control-for-blocks "If Block — Visibility control for Blocks Support Forum").
+
+Make sure to check the “Notify me of follow-up replies via email” checkbox to receive notifications, as soon as a reply posted to your question or inquiry.
+
+*Please note that this is an opensource 100% volunteer project, and it’s not unusual to get reply days or even weeks later.*
+
+= Can I help in translating this plugin into a new language? =
+The plugin is fully translation-ready and localized using the GNU framework, and translators are welcome to contribute to the plugin.
+
+Here’s the [WordPress translation website &#8594;](https://translate.wordpress.org/projects/wp-plugins/if-block-visibility-control-for-blocks "WordPress translation website")
+
+= How do I contribute to this plugin? =
+We welcome contributions in any form, and you can help reporting, testing, and detailing bugs.
+
+Here’s the [GitHub development repository &#8594;](https://github.com/mypreview/if-block-visibility-control-for-blocks "GitHub development repository")
+
+= Did you like the idea behind this plugin? =
+Please share your experience by leaving this plugin [5 shining stars](https://wordpress.org/support/plugin/if-block-visibility-control-for-blocks/reviews/ "Rate If Block — Visibility control for Blocks 5 stars") if you like it, thanks!
+
 = I need help customizing this plugin? =
 I am a full-stack developer with over five years of experience in WordPress theme and plugin development and customization. I would love to have the opportunity to discuss your project with you.
 
 [Hire me on UpWork &#8594;](https://www.upwork.com/o/profiles/users/_~016ad17ad3fc5cce94/ "Mahdi Yazdani Freelancer Profile")
+
+== Screenshots ==
+1. Configuring block content to appear only if specified conditions are met.
 
 == Changelog ==
 = 1.0.0 =
