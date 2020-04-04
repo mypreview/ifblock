@@ -9,11 +9,15 @@ Stable tag: 1.0.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-This block enables you to configure certain content to appear only if specified conditions are met (or be hidden) by setting different visibility rules.
+This block enables you to configure certain content to appear only if specified conditions are met.
 
 == Description ==
 
 This block enables you to configure certain content to appear only if specified conditions are met (or be hidden) by setting different visibility rules.
+
+You can add any Gutenberg block inside an if-block, have it render on the front-end of your site only if specified conditions are met. This block also provides an additional area (else-block) that can optionally display an alternative content in place when defined conditions are not met. 
+
+The conditional logic of this block supports both **AND** and **OR** operators in conjunction with filtering a specif user role and also detecting visitor’s browser software as well.
 
 == Installation ==
 = Minimum Requirements =
@@ -43,6 +47,23 @@ Automatic updates should work smoothly, but we still recommend you back up your 
 3. Click on the “Add Block” button and select the “If Block” block. Alternatively, you can start typing `/ifblock` in a new paragraph block, then press enter.
 4. “If Block” can contain other blocks. You can add content by clicking the `+` icon and picking a block.
 5. Publish the page.
+
+= What user roles are supported? =
+All pre-defined WordPress core user roles including the ones that might be registered by a third-party plugin such as WooCommerce are supported.
+
+= Which browsers are supported? =
+Currently, the if-block can detect and limit the content’s appearance to visitors that are browsing the page via any of the following browsers:
+
+* Google Chrome
+* Safari
+* iPhone Safari
+* Netscape 4
+* FireFox
+* Opera
+* Microsoft Edge
+* Internet Explorer
+* Mac Internet Explorer
+* Windows Internet Explorer
 
 = How do I get help with the plugin? =
 The easiest way to receive support is to “Create a new topic” by visiting Community Forums page [here](https://wordpress.org/support/plugin/if-block-visibility-control-for-blocks "If Block — Visibility control for Blocks Support Forum").
