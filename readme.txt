@@ -80,7 +80,7 @@ Here’s the [WordPress translation website &#8594;](https://translate.wordpress
 = How do I contribute to this plugin? =
 We welcome contributions in any form, and you can help reporting, testing, and detailing bugs.
 
-Here’s the [GitHub development repository &#8594;](https://github.com/mypreview/if-block-visibility-control-for-blocks "GitHub development repository")
+Here’s the [GitHub development repository &#8594;](https://github.com/mypreview/ifblock "GitHub development repository")
 
 = Did you like the idea behind this plugin? =
 Please share your experience by leaving this plugin [5 shining stars](https://wordpress.org/support/plugin/if-block-visibility-control-for-blocks/reviews/ "Rate If Block — Visibility control for Blocks 5 stars") if you like it, thanks!
