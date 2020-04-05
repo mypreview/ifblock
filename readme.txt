@@ -1,6 +1,6 @@
 === If Block — Visibility control for Blocks ===
 Contributors: mahdiyazdani, mypreview, gookaani
-Tags: visibility, rules, hide
+Tags: if block, conditional logic, block logic, access control, user role, conditional display, browser detection
 Donate link: https://www.mypreview.one
 Requires at least: 5.2
 Tested up to: 5.4.0
