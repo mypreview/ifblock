@@ -22,8 +22,11 @@
 
 ## Description
 
-A fully customizable Gutenberg editor block used for wrapping several blocks in a parent wrapper, which enables you to do more sophisticated styling as well.
+This block enables you to configure certain content to appear only if specified conditions are met (or be hidden) by setting different visibility rules.
 
+You can add any Gutenberg block inside an if-block, have it render on the front-end of your site only if specified conditions are met. This block also provides an additional area (else-block) that can optionally display an alternative content in place when defined conditions are not met. 
+
+The conditional logic of this block supports both **AND** and **OR** operators in conjunction with filtering a specif user role and also detecting visitor’s browser software as well.
 ## Translators
 
 Translators are welcome to contribute to the plugin. Please use the [WordPress translation website](https://translate.wordpress.org/projects/wp-plugins/if-block-visibility-control-for-blocks "WordPress translation website").
