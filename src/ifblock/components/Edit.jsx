@@ -1,12 +1,5 @@
 /**
- * Edit component
- *
- * @since       1.0.0
- * @package
- */
-
-/**
- * Block dependencies
+ * External dependencies
  */
 import classnames from 'classnames';
 import findIndex from 'lodash/findIndex';
@@ -15,7 +8,7 @@ import Inspector from './Inspector.jsx';
 import applyWithSelect from './../utils/withSelect';
 
 /**
- * Internal block libraries
+ * WordPress dependencies
  */
 const { apiFetch } = wp;
 const { __, _x, sprintf } = wp.i18n;

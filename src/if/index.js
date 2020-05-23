@@ -1,12 +1,5 @@
 /**
- * Block settings and meta-data
- *
- * @since       1.0.0
- * @package
- */
-
-/**
- * Block dependencies
+ * Internal dependencies & components
  */
 import edit from './components/Edit.jsx';
 import save from './components/Save.jsx';

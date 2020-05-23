@@ -1,12 +1,5 @@
 /**
- * Save component
- *
- * @since       1.0.0
- * @package
- */
-
-/**
- * Internal block libraries
+ * WordPress dependencies
  */
 const { Component } = wp.element;
 const { InnerBlocks } = wp.blockEditor;

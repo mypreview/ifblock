@@ -1,17 +1,10 @@
 /**
- * Edit component
- *
- * @since       1.0.0
- * @package
- */
-
-/**
- * Block dependencies
+ * External dependencies
  */
 import applyWithSelect from './../utils/withSelect';
 
 /**
- * Internal block libraries
+ * WordPress dependencies
  */
 const { Fragment, Component } = wp.element;
 const { compose } = wp.compose;

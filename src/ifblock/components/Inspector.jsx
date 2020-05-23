@@ -1,10 +1,10 @@
 /**
- * Block dependencies
+ * External dependencies
  */
 import applyWithSelect from './../utils/withSelect';
 
 /**
- * Internal block libraries
+ * WordPress dependencies
  */
 const { _x } = wp.i18n;
 const { Fragment, Component } = wp.element;

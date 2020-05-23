@@ -1,18 +1,11 @@
 /**
- * Edit component
- *
- * @since       1.0.0
- * @package
- */
-
-/**
- * Block dependencies
+ * External dependencies
  */
 import classnames from 'classnames';
 import applyWithSelect from './../utils/withSelect';
 
 /**
- * Internal block libraries
+ * WordPress dependencies
  */
 const { _x } = wp.i18n;
 const { Fragment, Component } = wp.element;

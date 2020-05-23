@@ -3,6 +3,9 @@
  */
 import './style.css';
 import './utils/category';
+import forEach from 'lodash/forEach';
+
+const { registerBlockType } = wp.blocks;
 
 /**
  * Import custom/built-in editor blocks.
@@ -12,14 +15,14 @@ import * as innerElse from './else/';
 import * as ifBlock from './ifblock/';
 
 export function registerBlocks() {
-	[ innerIf, innerElse, ifBlock ].forEach( ( block ) => {
+	forEach( [ innerIf, innerElse, ifBlock ], ( block ) => {
 		if ( ! block ) {
 			return;
 		} // End If Statement
 
 		const { name, category, icon, settings } = block;
 
-		wp.blocks.registerBlockType( `mypreview/${ name }`, {
+		registerBlockType( `mypreview/${ name }`, {
 			category,
 			icon: {
 				src: icon,
