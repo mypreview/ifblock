@@ -14,12 +14,10 @@ if ( ! defined( 'WPINC' ) ) {
 } // End If Statement
 
 if ( ! class_exists( 'API' ) ) :
-
 	/**
 	 * The REST API - Class
 	 */
 	final class API {
-
 		/**
 		 * Version of the route.
 		 *
@@ -40,10 +38,8 @@ if ( ! class_exists( 'API' ) ) :
 		 * @return  void
 		 */
 		public function __construct() {
-
 			$this->version   = '1';
 			$this->namespace = sprintf( '%s/v%s', IFBLOCK_SLUG, $this->version );
-
 		}
 
 		/**
@@ -52,9 +48,7 @@ if ( ! class_exists( 'API' ) ) :
 		 * @return  void
 		 */
 		public function init() {
-
 			add_action( 'rest_api_init', array( $this, 'register_rest_routes' ) );
-
 		}
 
 		/**
@@ -63,7 +57,6 @@ if ( ! class_exists( 'API' ) ) :
 		 * @return  void
 		 */
 		public function register_rest_routes() {
-
 			// Registers custom REST API routes.
 			register_rest_route(
 				$this->namespace,
@@ -91,7 +84,6 @@ if ( ! class_exists( 'API' ) ) :
 		 * @return $roles JSON feed of returned objects
 		 */
 		public static function get_user_roles() {
-
 			// Core class used to implement a user roles API.
 			global $wp_roles;
 
@@ -108,11 +100,10 @@ if ( ! class_exists( 'API' ) ) :
 					'value' => (string) $key,
 					'label' => (string) $role['name'],
 				);
-			}
+			} // End of the loop.
 
 			// phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores, WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
 			return apply_filters( sprintf( '%s_api_user_roles', __NAMESPACE__ ), $roles );
-
 		}
 
 		/**
@@ -121,7 +112,6 @@ if ( ! class_exists( 'API' ) ) :
 		 * @return $browsers JSON feed of static objects
 		 */
 		public static function get_browsers() {
-
 			$browsers = array(
 				array(
 					'value' => '',
@@ -171,7 +161,6 @@ if ( ! class_exists( 'API' ) ) :
 
 			// phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores, WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
 			return apply_filters( sprintf( '%s_api_browsers', __NAMESPACE__ ), $browsers );
-
 		}
 
 		/**
@@ -180,9 +169,7 @@ if ( ! class_exists( 'API' ) ) :
 		 * @return bool
 		 */
 		public static function get_permission() {
-
 			return current_user_can( 'edit_others_posts' );
-
 		}
 
 	}

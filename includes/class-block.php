@@ -14,12 +14,10 @@ if ( ! defined( 'WPINC' ) ) {
 } // End If Statement
 
 if ( ! class_exists( 'Block' ) ) :
-
 	/**
 	 * The If Block - Class
 	 */
 	final class Block {
-
 		/**
 		 * Constructor.
 		 *
@@ -33,10 +31,8 @@ if ( ! class_exists( 'Block' ) ) :
 		 * @return  void
 		 */
 		public function init() {
-
 			$this->includes();
 			$this->register_block();
-
 		}
 
 		/**
@@ -45,11 +41,9 @@ if ( ! class_exists( 'Block' ) ) :
 		 * @return void
 		 */
 		private function includes() {
-
 			require_once sprintf( '%sincludes/class-api.php', IFBLOCK_DIR_PATH );
 			$api = new API();
 			$api->init();
-
 		}
 
 		/**
@@ -58,7 +52,6 @@ if ( ! class_exists( 'Block' ) ) :
 		 * @return void
 		 */
 		public function register_block() {
-
 			// Hook server side rendering into render callback.
 			register_block_type(
 				'mypreview/ifblock',
@@ -78,10 +71,10 @@ if ( ! class_exists( 'Block' ) ) :
 		 * @return html
 		 */
 		public static function render_callback( $attributes, $content ) {
-
+			// Bail early, in case the request is for an administrative interface page.
 			if ( is_admin() ) {
 				return $content;
-			}
+			} // End If Statement
 
 			$get_operator = isset( $attributes['operator'] ) ? (string) strtolower( $attributes['operator'] ) : null;
 			$get_role     = isset( $attributes['role'] ) ? (string) strtolower( $attributes['role'] ) : null;
@@ -89,7 +82,7 @@ if ( ! class_exists( 'Block' ) ) :
 
 			if ( empty( $get_role ) && empty( $get_browser ) ) {
 				return $content;
-			}
+			} // End If Statement
 
 			$is_match                 = false;
 			$is_role                  = false;
@@ -99,11 +92,11 @@ if ( ! class_exists( 'Block' ) ) :
 
 			if ( ! empty( $get_role ) && $get_role === $get_current_user_role ) {
 				$is_role = true;
-			}
+			} // End If Statement
 
 			if ( ! empty( $get_browser ) && $get_browser === $get_current_user_browser ) {
 				$is_browser = true;
-			}
+			} // End If Statement
 
 			if ( 'or' === $get_operator ) {
 				if ( $is_role || $is_browser ) {
@@ -115,7 +108,7 @@ if ( ! class_exists( 'Block' ) ) :
 				}
 			} // End If Statement
 
-			$dom = new \DomDocument();
+			$dom = new \DOMDocument();
 			$dom->loadXML( $content );
 
 			$finder                 = new \DomXPath( $dom );
@@ -128,11 +121,11 @@ if ( ! class_exists( 'Block' ) ) :
 
 			foreach ( $if_block_content as $node ) {
 				$if_block_content_dom->appendChild( $if_block_content_dom->importNode( $node, true ) );
-			}
+			} // End of the loop.
 
 			foreach ( $else_block_content as $node ) {
 				$else_block_content_dom->appendChild( $else_block_content_dom->importNode( $node, true ) );
-			}
+			} // End of the loop.
 
 			$if_block_content   = trim( $if_block_content_dom->saveHTML() );
 			$else_block_content = trim( $else_block_content_dom->saveHTML() );
@@ -141,8 +134,7 @@ if ( ! class_exists( 'Block' ) ) :
 				return $if_block_content;
 			} else {
 				return $else_block_content;
-			}
-
+			} // End If Statement
 		}
 
 		/**
@@ -151,10 +143,8 @@ if ( ! class_exists( 'Block' ) ) :
 		 * @return  bool|string       The user's role, or false on failure.
 		 */
 		public static function get_current_user_role() {
-
 			$user = wp_get_current_user();
 			return $user->roles ? strtolower( $user->roles[0] ) : false;
-
 		}
 
 		/**
@@ -163,7 +153,6 @@ if ( ! class_exists( 'Block' ) ) :
 		 * @return  null|string       The user's browser name.
 		 */
 		public static function get_current_user_browser() {
-
 			$browser  = null;
 			$browsers = apply_filters(
 				'ifblock_wp_global_browser_names',
@@ -196,7 +185,6 @@ if ( ! class_exists( 'Block' ) ) :
 			} // End If Statement
 
 			return strtolower( $browser );
-
 		}
 
 	}
