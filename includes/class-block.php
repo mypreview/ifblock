@@ -67,8 +67,8 @@ if ( ! class_exists( 'Block' ) ) :
 		 * Render callback for the dynamic block.
 		 *
 		 * @param  array $attributes     Attributes passed from the JS file.
-		 * @param  html  $content        Content of the block.
-		 * @return html
+		 * @param  mixed $content        Content of the block.
+		 * @return mixed
 		 */
 		public static function render_callback( $attributes, $content ) {
 			// Bail early, in case the request is for an administrative interface page.
@@ -80,8 +80,12 @@ if ( ! class_exists( 'Block' ) ) :
 			$get_role     = isset( $attributes['role'] ) ? (string) strtolower( $attributes['role'] ) : null;
 			$get_browser  = isset( $attributes['browser'] ) ? (string) strtolower( $attributes['browser'] ) : null;
 
+			// Bail early, in case both role and browser are empty/missing/not-provided.
 			if ( empty( $get_role ) && empty( $get_browser ) ) {
 				return $content;
+			} elseif ( empty( $get_role ) || empty( $get_browser ) ) {
+				// Set the conditional operator to `OR` in case (only) one of the conditions are set.
+				$get_operator = 'or';
 			} // End If Statement
 
 			$is_match                 = false;
@@ -90,10 +94,12 @@ if ( ! class_exists( 'Block' ) ) :
 			$get_current_user_role    = self::get_current_user_role();
 			$get_current_user_browser = self::get_current_user_browser();
 
+			// Check whether the `Role` condition has set?
 			if ( ! empty( $get_role ) && $get_role === $get_current_user_role ) {
 				$is_role = true;
 			} // End If Statement
 
+			// Check whether the `Browser` condition has set?
 			if ( ! empty( $get_browser ) && $get_browser === $get_current_user_browser ) {
 				$is_browser = true;
 			} // End If Statement
@@ -101,16 +107,19 @@ if ( ! class_exists( 'Block' ) ) :
 			if ( 'or' === $get_operator ) {
 				if ( $is_role || $is_browser ) {
 					$is_match = true;
-				}
+				} // End If Statement
 			} else {
 				if ( $is_role && $is_browser ) {
 					$is_match = true;
-				}
+				} // End If Statement
 			} // End If Statement
 
+			// Serves as the root of the document tree.
 			$dom = new \DOMDocument();
+			// Load XML from the given post content.
 			$dom->loadXML( $content );
 
+			// Retrieve selected html from the DOM.
 			$finder                 = new \DomXPath( $dom );
 			$if_block_classname     = 'wp-block-mypreview-ifblock-inner-if';
 			$if_block_content       = $finder->query( "//div[contains(@class, '$if_block_classname')]" );
@@ -120,10 +129,12 @@ if ( ! class_exists( 'Block' ) ) :
 			$else_block_content_dom = new \DOMDocument();
 
 			foreach ( $if_block_content as $node ) {
+				// Adds new child at the end of the children.
 				$if_block_content_dom->appendChild( $if_block_content_dom->importNode( $node, true ) );
 			} // End of the loop.
 
 			foreach ( $else_block_content as $node ) {
+				// Adds new child at the end of the children.
 				$else_block_content_dom->appendChild( $else_block_content_dom->importNode( $node, true ) );
 			} // End of the loop.
 
@@ -143,6 +154,7 @@ if ( ! class_exists( 'Block' ) ) :
 		 * @return  bool|string       The user's role, or false on failure.
 		 */
 		public static function get_current_user_role() {
+			// Retrieve the current user object.
 			$user = wp_get_current_user();
 			return $user->roles ? strtolower( $user->roles[0] ) : false;
 		}
