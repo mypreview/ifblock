@@ -2,7 +2,7 @@
  * External dependencies
  */
 import classnames from 'classnames';
-import applyWithSelect from './../utils/withSelect';
+import applyWithSelect from './../utils/with-select';
 
 /**
  * WordPress dependencies
