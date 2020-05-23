@@ -147,7 +147,6 @@ if ( ! class_exists( 'IfBlock' ) ) :
 			// Enqueue the JavaScript.
 			wp_register_script( sprintf( '%s-script', IFBLOCK_SLUG ), $script_url, $script_asset['dependencies'], $script_asset['version'], true );
 			wp_set_script_translations( sprintf( '%s-script', IFBLOCK_SLUG ), 'ifblock', sprintf( '%s/languages/', IFBLOCK_DIR_PATH ) );
-
 		}
 
 	}
