@@ -2,10 +2,11 @@
  * External dependencies
  */
 import classnames from 'classnames';
+import isArray from 'lodash/isArray';
 import findIndex from 'lodash/findIndex';
 import isEmpty from 'lodash/isEmpty';
 import Inspector from './Inspector.jsx';
-import applyWithSelect from './../utils/withSelect';
+import applyWithSelect from './../utils/with-select';
 
 /**
  * WordPress dependencies
@@ -19,30 +20,6 @@ const { Dashicon, Spinner } = wp.components;
 const TEMPLATE = [ [ 'mypreview/ifblock-inner-if' ], [ 'mypreview/ifblock-inner-else' ] ];
 const API_NAMESPACE = 'ifblock/v1';
 
-function getRoles() {
-	return apiFetch( {
-		path: `${ API_NAMESPACE }/user-roles`,
-	} )
-		.then( ( data ) => data )
-		.catch( ( error ) => error );
-}
-
-function getBrowsers() {
-	return apiFetch( {
-		path: `${ API_NAMESPACE }/browsers`,
-	} )
-		.then( ( data ) => data )
-		.catch( ( error ) => error );
-}
-
-function getLabel( arr, val ) {
-	if ( !!! Array.isArray( arr ) || !!! arr || !!! val ) return;
-
-	const index = findIndex( arr, { value: val } );
-
-	return arr[ index ] !== void 0 ? arr[ index ].label : null;
-}
-
 export default compose( applyWithSelect )(
 	class Edit extends Component {
 		state = {
@@ -51,40 +28,70 @@ export default compose( applyWithSelect )(
 		};
 
 		async componentDidMount() {
-			const roles = await getRoles(),
-				browsers = await getBrowsers();
+			const roles = await this.fetchData( 'user-roles' ),
+				browsers = await this.fetchData( 'browsers' );
+
 			this.setState( {
 				roles,
 				browsers,
 			} );
 		}
 
+		fetchData = ( endpoint ) => {
+			return apiFetch( {
+				path: `${ API_NAMESPACE }/${ endpoint }`,
+			} )
+				.then( ( data ) => data )
+				.catch( ( error ) => error );
+		};
+
+		getLabel = ( arr, val ) => {
+			if ( !!! isArray( arr ) || !!! arr || !!! val ) return;
+			const index = findIndex( arr, { value: val } );
+			return arr[ index ] !== void 0 ? arr[ index ].label : null;
+		};
+
 		render() {
 			const { roles, browsers } = this.state;
 			const { isSelected, className, attributes } = this.props;
 			const { operator, role, browser } = attributes;
 			const roleNotice = !!! isEmpty( role )
-				? sprintf( _x( 'logged-in with the following role: %s', 'notice', 'ifblock' ), role )
+				? sprintf(
+						/* translators: %s: User role. */
+						_x( 'logged-in with the following role: %s', 'notice', 'ifblock' ),
+						role
+				  )
 				: '';
 			const browserNotice = !!! isEmpty( browser )
-				? sprintf( _x( 'visiting via %s', 'notice', 'ifblock' ), getLabel( browsers, browser ) )
+				? sprintf(
+						/* translators: %s: Browser name. */
+						_x( 'visiting via %s', 'notice', 'ifblock' ),
+						this.getLabel( browsers, browser )
+				  )
 				: '';
 			const notice = sprintf(
-				_x( 'Content shown to users that are %s %s', 'notice', 'ifblock' ),
+				/* translators: 1: First condition, 2: Second condition. */
+				_x( 'Content shown to users that are %1$s %2$s', 'notice', 'ifblock' ),
 				browserNotice,
-				browserNotice && roleNotice ? sprintf( '%s %s', operator, roleNotice ) : roleNotice
+				browserNotice && roleNotice ? sprintf( '%1$s %2$s', operator, roleNotice ) : roleNotice
 			);
 
 			return (
 				<Fragment>
-					{ !!! ( roles.length || browsers.length ) ? (
+					{ !!! ( ! isEmpty( roles ) || ! isEmpty( browsers ) ) ? (
 						<p className={ `${ className }__loading` }>
 							<Spinner />
-							{ sprintf( __( 'Fetching Data%s', 'ifblock' ), '…' ) }
+							{ sprintf(
+								/* translators: %s: Horizontal ellipsis. */
+								__( 'Fetching Data%s', 'ifblock' ),
+								'…'
+							) }
 						</p>
 					) : (
 						<Fragment>
-							{ isSelected && <Inspector { ...this.props } roles={ roles } browsers={ browsers } /> }
+							{ isSelected && (
+								<Inspector { ...this.props } rolesList={ roles } browsersList={ browsers } />
+							) }
 							<div
 								className={ classnames( className, {
 									[ `${ className }--selected` ]: isSelected,
