@@ -1,36 +1,34 @@
 {
 	"name": "mypreview/ifblock",
+	"type": "wordpress-plugin",
 	"description": "This block enables you to configure certain content to appear only if specified conditions are met (or be hidden) by setting different visibility rules.",
 	"homepage": "https://wordpress.org/plugins/if-block-visibility-control-for-blocks",
-	"type": "wordpress-plugin",
-	"license": "GPL-3.0+",
+	"keywords": [
+		"WordPress",
+		"Plugin"
+	],
+	"license": "GPL-3.0",
+	"authors": [
+		{
+			"name": "Mahdi Yazdani",
+			"homepage": "https://www.upwork.com/fl/mahdiyazdani"
+		}
+	],
 	"require": {
-		"php": ">=7.2",
-		"composer/installers": "~1.2"
+		"php": ">=7.2"
 	},
 	"require-dev": {
-		"squizlabs/php_codesniffer": "^3.5",
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.6.2",
 		"wp-coding-standards/wpcs": "^2.2.1",
-		"phpunit/phpunit": "^5",
+		"phpunit/phpunit": "^7",
 		"phpcompatibility/phpcompatibility-wp": "^2.1",
-		"dealerdirect/phpcodesniffer-composer-installer": "^0.5.0"
+		"php-parallel-lint/php-parallel-lint": "^1.2.0",
+		"wp-cli/i18n-command": "^2.2"
 	},
 	"scripts": {
-		"test": [
-			"phpunit"
-		],
-		"phpcs": [
-			"phpcs -s -p"
-		],
-		"phpcbf": [
-			"phpcbf -p"
-		]
-	},
-	"extra": {
-		"scripts-description": {
-			"test": "Run unit tests",
-			"phpcs": "Analyze code against the WordPress coding standards with PHP_CodeSniffer",
-			"phpcbf": "Fix coding standards warnings/errors automatically with PHP Code Beautifier"
-		}
+		"lint:wpcs": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
+		"lint:wpcbf": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf",
+		"lint:php": "@php ./vendor/bin/parallel-lint --exclude .git --exclude vendor --exclude node_modules .",
+		"make-pot": "wp i18n make-pot . languages/ifblock.pot"
 	}
 }
