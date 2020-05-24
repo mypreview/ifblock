@@ -5,6 +5,9 @@
 		}
 	}
 }
+[for="wp-block-mypreview-ifblock-conditional-operator"] {
+	display: block !important;
+}
 .wp-block-mypreview-ifblock {
 	&__header {
 		background-color: var(--main-bg-color);
@@ -38,8 +41,5 @@
 		text-align: right;
 		font-style: italic;
 		padding: 5px 10px 5px 10px;
-	}
-	[for=*"conditional-operator"] {
-		display: block !important;
 	}
 }
