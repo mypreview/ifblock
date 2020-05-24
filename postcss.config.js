@@ -3,6 +3,7 @@ module.exports = ( { env } ) => ( {
 		'postcss-import': {},
 		'postcss-for': {},
 		'postcss-each': {},
+		'postcss-nested-ancestors': {},
 		'postcss-nested': {},
 		'postcss-css-variables': {},
 		'postcss-custom-media': {},
