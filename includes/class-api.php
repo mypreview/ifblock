@@ -3,7 +3,7 @@
  * Register custom routes for retrieving values via REST API.
  *
  * @package         ifblock\mypreview
- * @since           1.0.0
+ * @since           1.1.0
  */
 
 namespace ifblock\mypreview;

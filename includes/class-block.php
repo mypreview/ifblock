@@ -3,7 +3,7 @@
  * The main loader class for the displaying if-block.
  *
  * @package         ifblock\mypreview
- * @since           1.0.0
+ * @since           1.1.0
  */
 
 namespace ifblock\mypreview;
