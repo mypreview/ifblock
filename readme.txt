@@ -3,9 +3,9 @@ Contributors: mahdiyazdani, mypreview, gookaani
 Tags: if block, conditional logic, block logic, access control, user role, conditional display, browser detection
 Donate link: https://www.mypreview.one
 Requires at least: 5.2
-Tested up to: 5.4.0
+Tested up to: 5.4.1
 Requires PHP: 7.2
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -94,5 +94,10 @@ I am a full-stack developer with over five years of experience in WordPress them
 1. Configuring block content to appear only if specified conditions are met.
 
 == Changelog ==
+= 1.1.0 =
+* Updated language file.
+* Multiple code standards improvements.
+* Compatibility with WordPress 5.4.1
+
 = 1.0.0 =
 * Initial release.
