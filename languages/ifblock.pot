@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: If Block — Visibility control for Blocks 1.0.0\n"
+"Project-Id-Version: If Block — Visibility control for Blocks 1.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ifblock\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-05-23T21:48:15+00:00\n"
+"POT-Creation-Date: 2020-05-24T12:28:00+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: ifblock\n"
@@ -101,92 +101,92 @@ msgctxt "browser name"
 msgid "Windows Internet Explorer"
 msgstr ""
 
-#: src/else/components/Edit.jsx:41
+#: src/else/components/Edit.jsx:34
 msgctxt "help"
 msgid "Content shown if the conditions of the above block are not met."
 msgstr ""
 
-#: src/else/index.js:23
+#: src/else/index.js:16
 msgctxt "block title"
 msgid "Else"
 msgstr ""
 
-#: src/if/index.js:23
+#: src/if/index.js:16
 msgctxt "block title"
 msgid "If"
 msgstr ""
 
-#: src/ifblock/components/Inspector.jsx:28
+#: src/ifblock/components/Inspector.jsx:21
 msgctxt "control label"
 msgid "Operator"
 msgstr ""
 
-#: src/ifblock/components/Inspector.jsx:31
+#: src/ifblock/components/Inspector.jsx:24
 msgctxt "control label"
 msgid "The block will be shown if all conditions defined below are true or match."
 msgstr ""
 
-#: src/ifblock/components/Inspector.jsx:36
+#: src/ifblock/components/Inspector.jsx:29
 msgctxt "control label"
 msgid "The block will be shown if either of the conditions defined below is true or a match."
 msgstr ""
 
-#: src/ifblock/components/Inspector.jsx:43
+#: src/ifblock/components/Inspector.jsx:36
 msgctxt "aria label"
 msgid "Conditional operator"
 msgstr ""
 
-#: src/ifblock/components/Inspector.jsx:53
+#: src/ifblock/components/Inspector.jsx:46
 msgctxt "operator"
 msgid "AND"
 msgstr ""
 
-#: src/ifblock/components/Inspector.jsx:64
+#: src/ifblock/components/Inspector.jsx:57
 msgctxt "operator"
 msgid "OR"
 msgstr ""
 
-#: src/ifblock/components/Inspector.jsx:70
+#: src/ifblock/components/Inspector.jsx:63
 msgctxt "control label"
 msgid "User Role"
 msgstr ""
 
-#: src/ifblock/components/Inspector.jsx:71
+#: src/ifblock/components/Inspector.jsx:64
 msgctxt "control help"
 msgid "The block content will be shown to users that are logged-in and in the selected role."
 msgstr ""
 
-#: src/ifblock/components/Inspector.jsx:85
+#: src/ifblock/components/Inspector.jsx:78
 msgctxt "control label"
 msgid "Browser"
 msgstr ""
 
-#: src/ifblock/components/Inspector.jsx:86
+#: src/ifblock/components/Inspector.jsx:79
 msgctxt "control help"
 msgid "The block content will be shown to users that are browsing the page via the selected browser."
 msgstr ""
 
-#: src/ifblock/index.js:24
+#: src/ifblock/index.js:17
 msgctxt "block title"
 msgid "If Block"
 msgstr ""
 
-#: src/ifblock/index.js:33
+#: src/ifblock/index.js:26
 msgctxt "block description"
 msgid "This block enables you to configure certain content to appear only if specified conditions are met (or be hidden) by setting different visibility rules."
 msgstr ""
 
-#: src/ifblock/index.js:39
+#: src/ifblock/index.js:32
 msgctxt "block keyword"
 msgid "Protected"
 msgstr ""
 
-#: src/ifblock/index.js:40
+#: src/ifblock/index.js:33
 msgctxt "block keyword"
 msgid "Visibility"
 msgstr ""
 
-#: src/ifblock/index.js:41
+#: src/ifblock/index.js:34
 msgctxt "block keyword"
 msgid "Show Hide"
 msgstr ""
