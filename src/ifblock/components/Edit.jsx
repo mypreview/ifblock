@@ -59,7 +59,7 @@ export default compose( applyWithSelect )(
 				? sprintf(
 						/* translators: %s: User role. */
 						_x( 'logged-in with the following role: %s', 'notice', 'ifblock' ),
-						role
+						this.getLabel( roles, role )
 				  )
 				: '';
 			const browserNotice = !!! isEmpty( browser )
