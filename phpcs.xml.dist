@@ -42,10 +42,11 @@
 
     <!--
     #############################################################################
-    USE THE WordPress AND THE Theme Review RULESET
+    USE THE WordPress AND THE Plugin Review RULESET
     #############################################################################
     -->
 
+    <rule ref="WordPress" />
     <!-- Let's also check that everything is properly documented. -->
     <rule ref="WordPress-Docs"/>
     
@@ -85,7 +86,6 @@
         <properties>
             <property name="prefixes" type="array">
                 <element value="ifblock"/>
-                <element value="ifblock\mypreview"/>
             </property>
         </properties>
     </rule>
