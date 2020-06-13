@@ -2,11 +2,13 @@
 /**
  * The main loader class for the displaying if-block.
  *
- * @package         ifblock\mypreview
- * @since           1.1.0
+ * @package         ifblock
+ * @since           1.2.0
  */
 
-namespace ifblock\mypreview;
+namespace IfBlock\Includes;
+
+use IfBlock\Includes\API as API;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -41,7 +43,6 @@ if ( ! class_exists( 'Block' ) ) :
 		 * @return void
 		 */
 		private function includes() {
-			require_once sprintf( '%sincludes/class-api.php', IFBLOCK_DIR_PATH );
 			$api = new API();
 			$api->init();
 		}

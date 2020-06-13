@@ -2,11 +2,11 @@
 /**
  * Register custom routes for retrieving values via REST API.
  *
- * @package         ifblock\mypreview
- * @since           1.1.0
+ * @package         ifblock
+ * @since           1.2.0
  */
 
-namespace ifblock\mypreview;
+namespace IfBlock\Includes;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
