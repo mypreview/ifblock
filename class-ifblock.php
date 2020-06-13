@@ -13,14 +13,14 @@
  * any later version.
  *
  * @link                    https://www.mypreview.one
- * @since                   1.0.0
+ * @since                   1.2.0
  * @package                 ifblock\mypreview
  *
  * @wordpress-plugin
  * Plugin Name:             If Block — Visibility control for Blocks
  * Plugin URI:              https://www.mypreview.one
  * Description:             This block enables you to configure certain content to appear only if specified conditions are met (or be hidden) by setting different visibility rules.
- * Version:                 1.1.0
+ * Version:                 1.2.0
  * Author:                  MyPreview
  * Author URI:              https://www.mypreview.one
  * License:                 GPL-3.0
@@ -29,7 +29,9 @@
  * Domain Path:             /languages
  */
 
-namespace ifblock\mypreview;
+namespace IfBlock;
+
+use IfBlock\Includes\Block as Block;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -45,6 +47,7 @@ if ( ! defined( 'WPINC' ) ) {
 define( 'IFBLOCK_FILE', __FILE__ );
 define( 'IFBLOCK_SLUG', 'ifblock' );
 define( 'IFBLOCK_VERSION', get_file_data( IFBLOCK_FILE, array( 'version' => 'Version' ) )['version'] );
+define( 'IFBLOCK_PLUGIN_BASENAME', plugin_basename( IFBLOCK_FILE ) );
 define( 'IFBLOCK_DIR_URL', plugin_dir_url( IFBLOCK_FILE ) );
 define( 'IFBLOCK_DIR_PATH', plugin_dir_path( IFBLOCK_FILE ) );
 
@@ -59,6 +62,80 @@ if ( ! class_exists( 'IfBlock' ) ) :
 		 * @var  object   $instance
 		 */
 		private static $instance = null;
+
+		/**
+		 * Constructor.
+		 *
+		 * @return  void
+		 */
+		public function __construct() {
+			spl_autoload_register( array( $this, 'autoload' ) );
+			add_filter( sprintf( 'plugin_action_links_%s', IFBLOCK_PLUGIN_BASENAME ), array( $this, 'action_links' ) );
+		}
+
+		/**
+		 * Automatically locates and loads files based on their namespaces and their
+		 * file names whenever they are instantiated.
+		 *
+		 * @param  string $filename     File name.
+		 * @return void
+		 */
+		public function autoload( $filename ) {
+			// First, separate the components of the incoming file.
+			$file_path = explode( '\\', $filename );
+
+			/**
+			 * - The first index will always be the namespace since it's part of the plugin.
+			 * - All but the last index will be the path to the file.
+			 * - The final index will be the filename. If it doesn't begin with 'I' then it's a class.
+			 */
+
+			// Get the last index of the array. This is the class we're loading.
+			$file_name = '';
+			if ( isset( $file_path[ count( $file_path ) - 1 ] ) ) {
+
+				$file_name = strtolower(
+					$file_path[ count( $file_path ) - 1 ]
+				);
+
+				$file_name       = str_ireplace( '_', '-', $file_name );
+				$file_name_parts = explode( '-', $file_name );
+
+				// Interface support: handle both Interface_Foo or Foo_Interface.
+				$index = array_search( 'interface', $file_name_parts, true );
+
+				if ( false !== $index ) {
+					// Remove the 'interface' part.
+					unset( $file_name_parts[ $index ] );
+					// Rebuild the file name.
+					$file_name = implode( '-', $file_name_parts );
+					$file_name = sprintf( 'interface-%s.php', $file_name );
+				} else {
+					$file_name = sprintf( 'class-%s.php', $file_name );
+				}
+			}
+
+			/**
+			 * Find the fully qualified path to the class file by iterating through the $file_path array.
+			 * We ignore the first index since it's always the top-level package. The last index is always
+			 * the file so we append that at the end.
+			 */
+			$fully_qualified_path = trailingslashit( IFBLOCK_DIR_PATH );
+			$count_file_path      = count( $file_path );
+
+			for ( $i = 1; $i < $count_file_path - 1; $i++ ) {
+				$dir                   = strtolower( $file_path[ $i ] );
+				$fully_qualified_path .= trailingslashit( $dir );
+			}
+
+			$fully_qualified_path .= $file_name;
+
+			// Now include the file.
+			// Checks if a file is readable.
+			if ( is_readable( $fully_qualified_path ) ) {
+				include_once $fully_qualified_path; // Do not stop PHP from executing the rest of the script.
+			}
+		}
 
 		/**
 		 * Main IfBlock Instance.
@@ -111,7 +188,6 @@ if ( ! class_exists( 'IfBlock' ) ) :
 		 * @return void
 		 */
 		private function includes() {
-			require_once sprintf( '%sincludes/class-block.php', IFBLOCK_DIR_PATH );
 			$block = new Block();
 			$block->init();
 		}
@@ -147,6 +223,23 @@ if ( ! class_exists( 'IfBlock' ) ) :
 			// Enqueue the JavaScript.
 			wp_register_script( sprintf( '%s-script', IFBLOCK_SLUG ), $script_url, $script_asset['dependencies'], $script_asset['version'], true );
 			wp_set_script_translations( sprintf( '%s-script', IFBLOCK_SLUG ), 'ifblock', sprintf( '%s/languages/', IFBLOCK_DIR_PATH ) );
+		}
+
+		/**
+		 * Display additional links in plugins table page.
+		 * Filters the list of action links displayed for a specific plugin in the Plugins list table.
+		 *
+		 * @param   array $links  Plugin table/item action links.
+		 * @return  array
+		 */
+		public function action_links( $links ) {
+			$plugin_links = array();
+			/* translators: 1: Open anchor tag, 2: Close anchor tag. */
+			$plugin_links[] = sprintf( _x( '%1$sHire Me!%2$s', 'plugin link', 'ifblock' ), sprintf( '<a href="https://www.upwork.com/o/profiles/users/_~016ad17ad3fc5cce94/" class="button-link-delete" target="_blank" rel="noopener noreferrer nofollow" title="%s">', esc_attr_x( 'Looking for help? Hire Me!', 'upsell', 'ifblock' ) ), '</a>' );
+			/* translators: 1: Open anchor tag, 2: Close anchor tag. */
+			$plugin_links[] = sprintf( _x( '%1$sSupport%2$s', 'plugin link', 'ifblock' ), '<a href="https://wordpress.org/support/plugin/if-block-visibility-control-for-blocks" target="_blank" rel="noopener noreferrer nofollow">', '</a>' );
+
+			return array_merge( $plugin_links, $links );
 		}
 
 	}
